@@ -1,0 +1,11 @@
+<div class="well">
+<h4 style="font-size: 22px;">Recent News <a href="{{ site.url }}{{ site.baseurl }}/allnews.html" style="font-size: 16px; color: #337ab7;">(All News)</a></h4>
+
+{% for article in site.data.news limit:4 %}
+<div style="margin-bottom: 20px;">
+  <strong>{{ article.date }}</strong><br>
+  {{ article.headline | markdownify | remove: '<p>' | remove: '</p>' }}
+</div>
+{% endfor %}
+
+</div>
