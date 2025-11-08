@@ -16,50 +16,8 @@ body {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-	body {
-		padding-top: 100px;
-	}
-	
 	.navbar-brand {
-		font-size: 16px !important;
-		padding-top: 12px !important;
-		padding-bottom: 12px !important;
-		line-height: 1.3 !important;
-		white-space: normal !important;
-		max-width: 70% !important;
-	}
-	
-	.navbar-default {
-		min-height: auto !important;
-	}
-	
-	.navbar-header {
-		margin-bottom: 0 !important;
-	}
-	
-	.navbar-default .navbar-nav > li > a {
-		font-size: 16px !important;
-		padding-top: 10px !important;
-		padding-bottom: 10px !important;
-	}
-	
-	.container-fluid {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	
-	#homeid, #textid, #gridid, #newsid, #research, #publications, #team {
-		padding-top: 20px;
-		margin-top: 20px;
-	}
-	
-	h1 {
-		font-size: 28px !important;
-		margin-top: 10px !important;
-	}
-	
-	h2 {
-		font-size: 24px !important;
+		font-size: 14px !important;
 	}
 }
 
