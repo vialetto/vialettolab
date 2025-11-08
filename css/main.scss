@@ -14,6 +14,38 @@ body {
 	font-size: 18px;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	body {
+		padding-top: 80px;
+	}
+	
+	.navbar-brand {
+		font-size: 18px !important;
+		padding-top: 15px !important;
+		padding-bottom: 15px !important;
+	}
+	
+	.navbar-default {
+		min-height: 60px !important;
+	}
+	
+	.navbar-default .navbar-nav > li > a {
+		font-size: 16px !important;
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+	}
+	
+	.container-fluid {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	#homeid, #textid, #gridid, #newsid {
+		padding-top: 20px;
+	}
+}
+
 figcaption {
     text-align: right;
     margin-top: -20px;
