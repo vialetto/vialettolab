@@ -10,8 +10,8 @@ title: The Multiscale Computational Plasma Lab
 email: vialetto@ucla.edu
 description: > # this means to ignore newlines until "baseurl:"
   Website of the MCPL Lab.
-baseurl: ""
-url: ""
+baseurl: "/vialettolab"
+url: "https://vialetto.github.io"
 
 include:
   - .htaccess
