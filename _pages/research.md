@@ -54,7 +54,7 @@ These methods enable direct coupling of electron kinetics with fluid description
 Understanding what chemical reactions actually occur in plasmas requires both accurate fundamental data and systematic model construction:
 
 - **Cross section extraction**: Combining transport theory and swarm experiments to extract cross sections for charged particles (see [LXCat Project](https://nl.lxcat.net/home/))
-- **Reaction mechanisms**: Our group is interested in develping complete chemistry sets for plasmas under different pressure and temperature conditions
+- **Reaction mechanisms**: Our group is interested in developing complete chemistry sets for plasmas under different pressure and temperature conditions
 - **Collisional-radiative models**: Developing population models with complex chemistry to extract internal plasma parameters from experimental spectroscopic data
 
 </div>
@@ -67,7 +67,7 @@ Rather than using fixed surface parameters, we are developing methods that model
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/examples/SurfaceKin.png" alt="Surface Kinetics Processes" style="width: 350px; float: right; margin: 0 0 15px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
 
-- **Kinetic Monte Carlo**: Develping computationally efficient mesoscopic approaches to model plasma interactions with surfaces, electron emission, and surface chemistry for understanding how surface properties (adsorbed species, roughness, composition changes) feed back to alter plasma behavior
+- **Kinetic Monte Carlo**: Developing computationally efficient mesoscopic approaches to model plasma interactions with surfaces, electron emission, and surface chemistry for understanding how surface properties (adsorbed species, roughness, composition changes) feed back to alter plasma behavior
 - **Molecular dynamics with reactive force fields**: We are interested in simulating atomic-scale surface modification during plasma exposure
 - **Multi-scale bridging**: Our goal is to connect quantum-mechanical surface processes to continuum plasma models through carefully constructed boundary conditions and embedding approaches
 
