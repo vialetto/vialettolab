@@ -12,7 +12,7 @@ permalink: /
 # Luca Vialetto
 
 I am an incoming Assistant Professor in the [Department of Mechanical and Aerospace Engineering at UCLA](https://www.mae.ucla.edu/) (starting in Fall 2026). I am currently a [Stanford Energy Postdoctoral Fellow](https://energypostdoc.stanford.edu/) in the Department of Aeronautics and Astronautics, working with Prof. Kentaro Hara.  
-**📢 I am recruiting PhD students to join my group at UCLA in Fall 2026. <a href="{{ site.url }}{{ site.baseurl }}/team">Learn more →</a>**
+**📢 I am recruiting PhD students to join my group at UCLA in Fall 2026. <a href="{{ site.url }}{{ site.baseurl }}/positions">Learn more →</a>**
 
 My research lies broadly at the intersection of **plasma physics**, **computational chemistry**, and **transport phenomena**. I am particularly interested in developing physics-based and data-driven models for low-temperature plasmas, motivated by applications of broad societal importance such as space propulsion, advanced manufacturing, and chemical energy conversion. My research interests include:
 
@@ -47,6 +47,6 @@ or find me (and my work) online:</p>
 
 We are establishing our research group at UCLA, one of the world's leading institutions for engineering and physical sciences. We will develop cutting-edge computational tools and collaborate with experimental groups to advance our understanding of plasma processes and their applications to critical challenges in energy, materials, and space engineering. Our work bridges fundamental plasma physics with practical applications, combining rigorous theory, advanced simulations, and data-driven approaches.
 
-**We are looking for passionate students to join the team [(more info)]({{ site.url }}{{ site.baseurl }}/team)!**
+**We are looking for passionate students to join the team [(more info)]({{ site.url }}{{ site.baseurl }}/positions)!**
 
 ---
