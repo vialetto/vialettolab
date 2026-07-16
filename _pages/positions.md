@@ -1,27 +1,31 @@
 ---
 title: "Multiscale Computational Plasma Lab - Positions"
-layout: gridlay
+layout: textlay
 excerpt: "Multiscale Computational Plasma Lab: Positions"
 sitemap: false
 permalink: /positions/
 ---
 
-# Positions
+<div class="research-box" markdown="1">
+
+### Positions
 We have positions available for enthusiastic students and postdocs with background experience in engineering and/or physics.
 
-## Postdoctoral Researchers
+#### Postdoctoral Researchers
 We welcome interest from potential postdocs. However, at this time, we can only consider applicants who have already secured external funding.
 
-## Graduate Students
+#### Graduate Students
 Prospective students interested in this area of research should apply to the [Doctoral Program in Mechanical and Aerospace Engineering](https://www.mae.ucla.edu/graduate-admissions/).
 We highly encourage you to apply for scholarships and fellowships to support your graduate education. A list of those is available below.
 
-## Undergraduate Students
+#### Undergraduate Students
 UCLA undergraduates interested in summer or academic year research opportunities should contact Prof. Vialetto with their CV and transcript.
 
-<hr style="border: none; border-top: 1px solid #ddd; margin: 40px 0;">
+</div>
 
-# Fellowships & Scholarships
+<div class="research-box" markdown="1">
+
+### Fellowships & Scholarships
 We strongly encourage students to pursue external fellowships and scholarships to support their research with the lab. Outside funding gives you more freedom in choosing your research direction, and we are glad to help you prepare an application. Reach out early to talk through your interests and we can advise on fit and drafts.
 
 If you are an undergraduate planning to go to graduate school, the NSF GRFP is the place to start: apply in the fall of your senior year. If you're already in your first year of graduate school, you may still be eligible.
@@ -43,9 +47,11 @@ If you are an undergraduate planning to go to graduate school, the NSF GRFP is t
 
 Eligibility rules and deadlines change year to year. Always check the program's own site before you plan around them.
 
-<hr style="border: none; border-top: 1px solid #ddd; margin: 40px 0;">
+</div>
 
-# Summer Research Support
+<div class="research-box" markdown="1">
+
+### Summer Research Support
 UCLA undergraduates who want to do research with the lab over the summer have several funding options. Most deadlines fall between January and March, and nearly all of them require you to have a faculty mentor lined up before you apply. So talk to us in the fall or early winter, not in the spring.
 
 * [URC-Sciences Summer Program](https://sciences.ugresearch.ucla.edu/programs-and-scholarships/urc-sciences-summer-program/):
@@ -58,3 +64,5 @@ UCLA undergraduates who want to do research with the lab over the summer have se
   central directory of UCLA undergraduate research programs, scholarships, and awards across disciplines. Worth browsing for program-specific options not listed here.
 
 Program details and deadlines change every year. Always confirm on the program's own site, and contact us early — for most of these, we need to be involved before you apply.
+
+</div>
