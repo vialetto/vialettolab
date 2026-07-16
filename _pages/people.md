@@ -17,19 +17,19 @@ permalink: /people/
 </style>
 
 <div class="people-top row">
-  <div class="col-sm-4" style="text-align: right;">
-    <img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="people-photo img-responsive" />
-  </div>
-  <div class="col-sm-8">
-    <div class="people-name">PI: Luca Vialetto</div>
-    <p class="people-meta">Assistant Professor, Mechanical &amp; Aerospace Engineering</p>
-    <p class="people-meta people-email">vialetto@ucla.edu</p>
-    <div class="people-links">
-      <a href="https://samueli.ucla.edu/people/luca-vialetto/" target="_blank">UCLA Profile &#8599;</a>
-      <a href="https://www.linkedin.com/in/luca-vialetto/" target="_blank">LinkedIn &#8599;</a>
-      <a href="{{ site.url }}{{ site.baseurl }}/files/Vialetto_CV.pdf">Curriculum Vitae</a>
-    </div>
-  </div>
+<div class="col-sm-4" style="text-align: right;">
+<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="people-photo img-responsive" />
+</div>
+<div class="col-sm-8">
+<div class="people-name">PI: Luca Vialetto</div>
+<p class="people-meta">Assistant Professor, Mechanical &amp; Aerospace Engineering</p>
+<p class="people-meta people-email">vialetto@ucla.edu</p>
+<div class="people-links">
+<a href="https://samueli.ucla.edu/people/luca-vialetto/" target="_blank">UCLA Profile &#8599;</a>
+<a href="https://www.linkedin.com/in/luca-vialetto/" target="_blank">LinkedIn &#8599;</a>
+<a href="{{ site.url }}{{ site.baseurl }}/files/Vialetto_CV.pdf">Curriculum Vitae</a>
+</div>
+</div>
 </div>
 
 <p style="text-align: center; color: #666; font-style: italic; margin-top: 40px;">Updates on new lab members will be announced in Fall 2026.</p>
