@@ -7,22 +7,26 @@ permalink: /people/
 ---
 
 <style>
-.people-top { margin-top: 50px; }
-.people-photo { width: 100%; max-width: 240px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; box-shadow: none; margin-left: auto; }
-.people-name { font-size: 24px; font-weight: bold; color: #222; margin: 0 0 12px 0; }
-.people-meta { margin: 4px 0; color: #333; }
+.people-top { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 36px; margin-top: 50px; }
+.people-photo-col { flex-shrink: 0; }
+.people-photo-col p { margin: 0; }
+.people-photo { width: 240px; height: 240px; object-fit: cover; border-radius: 12px; display: block; box-shadow: none; }
+.people-info { flex: 1; min-width: 280px; }
+.people-info > p:first-child { margin-top: 0; }
+.people-name { font-size: 26px; font-weight: bold; color: #222; margin: 0 0 14px 0; }
+.people-meta { font-size: 19px; margin: 5px 0; color: #333; }
 .people-email { font-family: "Courier New", monospace; }
-.people-links { margin-top: 16px; }
-.people-links a { display: block; margin-top: 4px; }
+.people-links { margin-top: 18px; }
+.people-links a { display: block; font-size: 19px; margin-top: 6px; }
 </style>
 
-<div class="people-top row">
+<div class="people-top">
 
-<div class="col-sm-4" style="text-align: right;">
-<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="people-photo img-responsive" />
+<div class="people-photo-col">
+<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="people-photo" />
 </div>
 
-<div class="col-sm-8">
+<div class="people-info">
 
 <p class="people-name">PI: Luca Vialetto</p>
 
