@@ -10,7 +10,7 @@ permalink: /people/
 .people-top { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 36px; margin-top: 90px; }
 .people-photo-col { flex-shrink: 0; }
 .people-photo-col p { margin: 0; }
-.people-photo { width: 240px; height: 240px; object-fit: cover; border-radius: 0; display: block; box-shadow: none; }
+.people-photo { width: 240px; height: 240px; object-fit: cover; border-radius: 0; display: block; box-shadow: none; margin: 0; }
 .people-info { flex: 1; min-width: 280px; }
 .people-info > p:first-child { margin-top: -4px; }
 .people-name { font-size: 26px; font-weight: bold; color: #222; margin: 0 0 14px 0; line-height: 1.1; }
