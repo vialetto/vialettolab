@@ -6,47 +6,48 @@ sitemap: false
 permalink: /
 ---
 
-<div class="row">
-<div class="col-sm-8">
+<style>
+#homeid h1 { display: none; }
+.home-hero {
+  position: relative; height: 420px; margin: 10px 0 45px 0;
+  background-color: #14141f;
+  background-image: url("{{ site.url }}{{ site.baseurl }}/images/research-propulsion.jpg");
+  background-size: cover; background-position: center;
+}
+.home-hero-box { position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: #fff; padding: 24px 30px; max-width: 380px; box-shadow: 0 3px 16px rgba(0,0,0,0.28); }
+.home-hero-box .home-hero-title { margin: 0 0 12px 0; font-weight: bold; font-size: 24px; color: #222; line-height: 1.25; }
+.home-hero-credit { position: absolute; bottom: 8px; right: 12px; margin: 0; color: rgba(255,255,255,0.85); font-size: 12px; text-shadow: 0 1px 2px rgba(0,0,0,0.7); }
+.home-hero-box p { margin: 0; font-size: 15px; line-height: 1.5; color: #333; }
+.home-welcome { max-width: 760px; margin: 0 auto 55px auto; text-align: center; }
+.home-welcome .home-welcome-title { font-weight: bold; font-size: 24px; margin: 0 0 22px 0; color: #222; }
+.home-welcome p { font-size: 18px; line-height: 1.7; color: #333; }
+.home-cta { margin-top: 26px; }
+@media (max-width: 768px) {
+  .home-hero { height: auto; padding: 200px 0 0 0; }
+  .home-hero-box { position: static; transform: none; max-width: none; box-shadow: none; }
+}
+</style>
 
-# Luca Vialetto
+<div class="home-hero">
 
-I am an incoming Assistant Professor in the [Department of Mechanical and Aerospace Engineering at UCLA](https://www.mae.ucla.edu/) (starting in Fall 2026). I am currently a [Stanford Energy Postdoctoral Fellow](https://energypostdoc.stanford.edu/) in the Department of Aeronautics and Astronautics, working with Prof. Kentaro Hara.  
-**📢 I am recruiting PhD students to join my group at UCLA in Fall 2026. <a href="{{ site.url }}{{ site.baseurl }}/positions">Learn more →</a>**
+<div class="home-hero-box">
 
-My research lies broadly at the intersection of **plasma physics**, **computational chemistry**, and **transport phenomena**. I am particularly interested in developing physics-based and data-driven models for low-temperature plasmas, motivated by applications of broad societal importance such as space propulsion, advanced manufacturing, and chemical energy conversion. My research interests include:
+<p class="home-hero-title">Multiscale Computational Plasma Lab</p>
 
-- Kinetics and transport in non-equilibrium plasmas
-- Plasma-surface interactions
-- Multiscale modeling for electric propulsion, plasma processing, and chemical conversion
-- Machine learning and physics-based models for plasma systems
-
-Before joining UCLA, I received my PhD in Applied Physics (summa cum laude) from the [Eindhoven University of Technology](https://www.tue.nl/en/) in the Netherlands, where I had the privilege of working with Dr. Paola Diomede and Prof. Richard van de Sanden on computational plasma physics and chemistry. During my PhD, I was awarded the Student Excellence Award at the Gaseous Electronics Conference by the American Physical Society. I also spent time as a postdoctoral researcher at [Kiel University](https://www.uni-kiel.de/en/) in Germany, working on multiscale plasma-material interactions for semiconductor manufacturing.
+<p>Advancing aerospace engineering, plasma physics, and plasma-material science with multiscale and multiphysics models and simulations</p>
 
 </div>
 
-<div class="col-sm-4" style="text-align: center;">
-<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="img-responsive" width="80%" style="border-radius: 5%; margin-top: 10px; margin-left: auto; margin-right: auto;" />
+<p class="home-hero-credit">Image: NASA</p>
 
-<p style="margin-top: 15px;"><strong>Email:</strong> vialetto [at] ucla [dot] edu<br />
-or vialetto [at] stanford [dot] edu<br />
-or find me (and my work) online:</p>
-
-<div style="font-size: 35px; margin-top: 10px;">
-<a href="https://scholar.google.com/citations?user=AT0Mxd8AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar" style="color: #4285F4;"></i></a>
-<a href="https://www.researchgate.net/profile/Luca-Vialetto" target="_blank" title="ResearchGate" style="margin-left: 10px;"><i class="ai ai-researchgate" style="color: #00D0B1;"></i></a>
-<a href="https://www.youtube.com/@breakdownpodcast" target="_blank" title="YouTube" style="margin-left: 10px;"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
-<a href="https://www.linkedin.com/in/luca-vialetto/" target="_blank" title="LinkedIn" style="margin-left: 10px;"><i class="fab fa-linkedin" style="color: #0077B5;"></i></a>
-</div>
-</div>
 </div>
 
----
+<div class="home-welcome">
 
-## About the Lab
+<p class="home-welcome-title">Welcome to the Multiscale Computational Plasma Lab</p>
 
-We are establishing our research group at UCLA, one of the world's leading institutions for engineering and physical sciences. We will develop cutting-edge computational tools and collaborate with experimental groups to advance our understanding of plasma processes and their applications to critical challenges in energy, materials, and space engineering. Our work bridges fundamental plasma physics with practical applications, combining rigorous theory, advanced simulations, and data-driven approaches.
+<p>Research in the Multiscale Computational Plasma Lab at UCLA focuses on electric propulsion, semiconductor fabrication such as etching and deposition, fundamentals of plasma-material interactions, and low-temperature plasma physics. We develop physics-based and data-driven models to describe the complex interplay between plasma chemistry, rarefied gasdynamics, electromagnetic fields, and material responses. We welcome students from all backgrounds with an interest in combining engineering and physics to explore fundamental questions in science while building the computational tools of tomorrow.</p>
 
-**We are looking for passionate students to join the team [(more info)]({{ site.url }}{{ site.baseurl }}/positions)!**
+<p class="home-cta"><strong>If you want to learn about opportunities to join our group, <a href="{{ site.url }}{{ site.baseurl }}/positions">explore our positions &rarr;</a></strong></p>
 
----
+</div>
