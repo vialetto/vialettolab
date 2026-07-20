@@ -94,7 +94,7 @@ Our research group focuses on developing advanced computational models to unders
 
 We develop **physics-based and data-driven models of plasmas** that couple complex chemistry, electromagnetic effects, external circuits, gas flow dynamics, surface kinetics, radiative and heat transfer.
 
-<div class="research-box">
+<div class="research-box" markdown="0">
 <h3>Kinetic Simulations of Low-Temperature Plasmas with Complex Chemistry</h3>
 <div class="rb-pair">
 <div class="rb-pair-item">
@@ -109,7 +109,7 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 <p>Our group develops in-house Particle-In-Cell / Monte Carlo Collision (PIC/MCC), Direct Simulation Monte Carlo (DSMC), and Itô-Kinetic Monte Carlo (Itô-KMC) models that couple plasma kinetics with electrostatic and electromagnetic effects, and complex external-circuit models. Our aim is to develop sets of chemical reaction mechanisms and cross sections for low-temperature plasmas that are validated with experiments across several pressures and operating conditions.</p>
 </div>
 
-<div class="research-box">
+<div class="research-box" markdown="0">
 <h3>Atomistic and Coarse-Grained Surface Models</h3>
 <div class="rb-duo">
 <figure>
@@ -123,7 +123,7 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 <p>Our aim is to develop scale-bridging surface kinetics models from atomistic to mesoscopic scales to describe adsorption, recombination, and surface defects, and how they feed back on the plasma.</p>
 </div>
 
-<div class="research-box">
+<div class="research-box" markdown="0">
 <h3>Data Assimilation</h3>
 <figure class="rb-figure" style="max-width: 560px;">
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/data-assimilation.png" alt="Digital twin: experiments, data assimilation, control, and physics-based model">
@@ -131,7 +131,7 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 <p>We fuse model results with experimental data to infer quantities that cannot be measured directly, such as internal plasma parameters, cross sections, and reaction rates from spectroscopic and swarm data.</p>
 </div>
 
-<div class="research-box">
+<div class="research-box" markdown="0">
 <h3>Surrogate Modeling</h3>
 <div class="flow3">
 <div class="flow-step">
@@ -153,7 +153,7 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 <p>Our goal is to develop the next generation of surrogate models and reduced-order models for plasma–material interactions, which make it feasible to explore the vast parameter space of plasma chemistry and surface conditions at a fraction of the cost.</p>
 </div>
 
-<div class="research-box">
+<div class="research-box" markdown="0">
 <h3>Boltzmann Equation for Charged Particles</h3>
 <div class="rb-duo rb-duo-lg">
 <figure>
