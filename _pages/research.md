@@ -94,10 +94,8 @@ Our research group focuses on developing advanced computational models to unders
 
 We develop **physics-based and data-driven models of plasmas** that couple complex chemistry, electromagnetic effects, external circuits, gas flow dynamics, surface kinetics, radiative and heat transfer.
 
-<div class="research-box" markdown="1">
-
-### Kinetic Simulations of Low-Temperature Plasmas with Complex Chemistry
-
+<div class="research-box">
+<h3>Kinetic Simulations of Low-Temperature Plasmas with Complex Chemistry</h3>
 <div class="rb-pair">
 <div class="rb-pair-item">
 <div class="rb-pair-label">Low-Pressure Plasmas</div>
@@ -108,15 +106,11 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/atmospheric-dbd.png" alt="Dielectric barrier discharge: applied voltage and current density over time">
 </div>
 </div>
-
-Our group develops in-house Particle-In-Cell / Monte Carlo Collision (PIC/MCC), Direct Simulation Monte Carlo (DSMC), and Itô-Kinetic Monte Carlo (Itô-KMC) models that couple plasma kinetics with electrostatic and electromagnetic effects, and complex external-circuit models. Our aim is to develop sets of chemical reaction mechanisms and cross sections for low-temperature plasmas that are validated with experiments across several pressures and operating conditions.
-
+<p>Our group develops in-house Particle-In-Cell / Monte Carlo Collision (PIC/MCC), Direct Simulation Monte Carlo (DSMC), and Itô-Kinetic Monte Carlo (Itô-KMC) models that couple plasma kinetics with electrostatic and electromagnetic effects, and complex external-circuit models. Our aim is to develop sets of chemical reaction mechanisms and cross sections for low-temperature plasmas that are validated with experiments across several pressures and operating conditions.</p>
 </div>
 
-<div class="research-box" markdown="1">
-
-### Atomistic and Coarse-Grained Surface Models
-
+<div class="research-box">
+<h3>Atomistic and Coarse-Grained Surface Models</h3>
 <div class="rb-duo">
 <figure>
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/plasma-solid-interface.jpg" alt="The plasma-solid interface: sheath and activated surface layers">
@@ -126,27 +120,19 @@ Our group develops in-house Particle-In-Cell / Monte Carlo Collision (PIC/MCC), 
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/deposition.gif" alt="Animated kinetic Monte Carlo simulation of atomistic deposition on a surface">
 </figure>
 </div>
-
-Our aim is to develop scale-bridging surface kinetics models from atomistic to mesoscopic scales to describe adsorption, recombination, and surface defects, and how they feed back on the plasma.
-
+<p>Our aim is to develop scale-bridging surface kinetics models from atomistic to mesoscopic scales to describe adsorption, recombination, and surface defects, and how they feed back on the plasma.</p>
 </div>
 
-<div class="research-box" markdown="1">
-
-### Data Assimilation
-
+<div class="research-box">
+<h3>Data Assimilation</h3>
 <figure class="rb-figure" style="max-width: 560px;">
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/data-assimilation.png" alt="Digital twin: experiments, data assimilation, control, and physics-based model">
 </figure>
-
-We fuse model results with experimental data to infer quantities that cannot be measured directly, such as internal plasma parameters, cross sections, and reaction rates from spectroscopic and swarm data.
-
+<p>We fuse model results with experimental data to infer quantities that cannot be measured directly, such as internal plasma parameters, cross sections, and reaction rates from spectroscopic and swarm data.</p>
 </div>
 
-<div class="research-box" markdown="1">
-
-### Surrogate Modeling
-
+<div class="research-box">
+<h3>Surrogate Modeling</h3>
 <div class="flow3">
 <div class="flow-step">
 <div class="flow-cap">From one second of plasma</div>
@@ -164,15 +150,11 @@ We fuse model results with experimental data to infer quantities that cannot be 
 <div class="flow-media"><img src="{{ site.url }}{{ site.baseurl }}/images/approach/surrogate-net.png" alt="Autoencoder surrogate model for plasma-material interactions"></div>
 </div>
 </div>
-
-Our goal is to develop the next generation of surrogate models and reduced-order models for plasma–material interactions, which make it feasible to explore the vast parameter space of plasma chemistry and surface conditions at a fraction of the cost.
-
+<p>Our goal is to develop the next generation of surrogate models and reduced-order models for plasma–material interactions, which make it feasible to explore the vast parameter space of plasma chemistry and surface conditions at a fraction of the cost.</p>
 </div>
 
-<div class="research-box" markdown="1">
-
-### Boltzmann Equation for Charged Particles
-
+<div class="research-box">
+<h3>Boltzmann Equation for Charged Particles</h3>
 <div class="rb-duo rb-duo-lg">
 <figure>
 <img src="{{ site.url }}{{ site.baseurl }}/images/approach/eepf-boltzmann.png" alt="Electron energy probability function: Monte Carlo vs. two-term and multi-term Boltzmann solutions">
@@ -183,11 +165,5 @@ Our goal is to develop the next generation of surrogate models and reduced-order
 <figcaption class="rb-credit">Plasma Sources Sci. Technol. 28, 115015 (2019)</figcaption>
 </figure>
 </div>
-
-We develop fast and accurate models for numerical solutions of the electron and ion Boltzmann equation, beyond the conventional two-term approximation, which can capture the strong anisotropy of the velocity distribution function and non-local effects. These are important for the definition of new hybrid kinetic–fluid models of plasmas.
-
+<p>We develop fast and accurate models for numerical solutions of the electron and ion Boltzmann equation, beyond the conventional two-term approximation, which can capture the strong anisotropy of the velocity distribution function and non-local effects. These are important for the definition of new hybrid kinetic–fluid models of plasmas.</p>
 </div>
-
----
-
-![]({{ site.url }}{{ site.baseurl }}/images/respic/research_overview.png){: style="width: 70%; float: center; margin: 20px 0px"}
