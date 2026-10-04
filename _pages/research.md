@@ -1,13 +1,13 @@
 ---
 title: "Research"
 layout: textlay
-description: "Kinetic simulations, surface models, data assimilation, and surrogate modeling of low-temperature plasmas for electric propulsion and semiconductor fabrication."
+description: "Multiscale models of low-temperature plasmas for electric propulsion, semiconductor fabrication, plasma-material interactions, and prebiotic chemistry."
 permalink: /research/
 ---
 
 # Research
 
-Our research group focuses on developing advanced computational models to understand and predict the behavior of low-temperature plasmas and their interactions with materials. We combine fundamental plasma physics with practical applications in aerospace, manufacturing, and energy.
+We develop multiscale computational models to understand and predict the behavior of low-temperature plasmas and their interactions with materials, from electron collisions and surface reactions at the atomic scale to the performance of full devices. We combine fundamental plasma physics with applications in aerospace, semiconductor manufacturing, energy, and the chemistry of planetary atmospheres.
 
 <style>
 .research-areas { display: flex; flex-wrap: wrap; gap: 24px; margin: 30px 0 45px 0; }
@@ -15,6 +15,11 @@ Our research group focuses on developing advanced computational models to unders
 .ra-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin: 0; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
 .ra-title { font-weight: bold; font-size: 20px; color: #2c3e50; margin: 14px 0 6px 0; }
 .ra-desc { color: #555; font-size: 16px; line-height: 1.5; }
+.ra-wide { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.ra-wide .ra-img { flex: 1 1 360px; width: auto; max-width: 100%; height: 240px; }
+.ra-wide-text { flex: 1 1 320px; }
+.ra-wide-text .ra-title { margin-top: 0; }
+.ra-ref { font-size: 14px; color: #777; margin-top: 8px; }
 .rb-figure { max-width: 440px; margin: 0 auto 18px auto; }
 .rb-figure img { width: 100%; display: block; margin: 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 .rb-credit { display: block; margin: 5px 2px 0 0; font-size: 11px; line-height: 1.3; color: #888; text-align: right; }
@@ -43,7 +48,7 @@ Our research group focuses on developing advanced computational models to unders
 
 <div class="ra-card" markdown="0">
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/research-propulsion.jpg" class="ra-img" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/research-propulsion.jpg" class="ra-img" alt="Electric thruster firing in a vacuum chamber" />
 
 <p class="ra-title">Electric Propulsion</p>
 
@@ -53,7 +58,7 @@ Our research group focuses on developing advanced computational models to unders
 
 <div class="ra-card" markdown="0">
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/research-semiconductor.jpg" class="ra-img" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/research-semiconductor.jpg" class="ra-img" alt="Semiconductor chip on a circuit board" />
 
 <p class="ra-title">Semiconductor Fabrication</p>
 
@@ -63,7 +68,7 @@ Our research group focuses on developing advanced computational models to unders
 
 <div class="ra-card" markdown="0">
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/research-surfaces.png" class="ra-img" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/research-surfaces.png" class="ra-img" alt="Molecules interacting with a material surface" />
 
 <p class="ra-title">Plasma&ndash;Material Interactions</p>
 
@@ -73,7 +78,7 @@ Our research group focuses on developing advanced computational models to unders
 
 <div class="ra-card" markdown="0">
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/research-plasma.jpg" class="ra-img" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/research-plasma.jpg" class="ra-img" alt="Plasma filaments in a gas discharge" />
 
 <p class="ra-title">Low-Temperature Plasma Physics</p>
 
@@ -81,17 +86,48 @@ Our research group focuses on developing advanced computational models to unders
 
 </div>
 
+<div class="ra-card ra-wide" markdown="0">
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/research-prebiotic.svg" class="ra-img" alt="Lightning over a primordial ocean on the early Earth, with prebiotic molecules such as HCN and glycine" />
+
+<div class="ra-wide-text">
+
+<p class="ra-title">Nonequilibrium Chemistry in Prebiotic Environments</p>
+
+<p class="ra-desc">Electrical discharges such as lightning drive chemistry far from equilibrium, as the Miller&ndash;Urey experiment famously showed for the early Earth. We apply our models of electron kinetics and plasma chemistry to understand how discharges in planetary atmospheres can produce prebiotic molecules, such as hydrogen cyanide and amino acids, that are building blocks of life.</p>
+
+<p class="ra-ref">Review: <a href="https://www.mdpi.com/1420-3049/26/12/3663" target="_blank" rel="noopener">Plasma modelling and prebiotic chemistry: a review of the state of the art and perspective</a>, Molecules 26, 3663 (2021)</p>
+
+</div>
+
+</div>
+
 </div>
 
 ## Why This Matters
 
-**Low-temperature plasmas are enabling technologies for some of society's most pressing challenges**: propelling spacecraft more efficiently, manufacturing advanced semiconductors, and producing chemicals and fuels. However, these applications remain largely developed through trial and error. *The reason?* Plasmas are extraordinarily complex systems where electrons, ions, and neutral species coexist far from equilibrium, driving chemistry that wouldn't occur otherwise. When plasmas contact material surfaces, the complexity multiplies: energetic particles modify surfaces, surfaces change plasma behavior, and this feedback occurs across vastly different time and length scales.
+**Low-temperature plasmas are enabling technologies for some of society's most pressing challenges**: propelling spacecraft more efficiently, manufacturing advanced semiconductors, and producing chemicals and fuels. However, these applications remain largely developed through trial and error. *The reason?* Plasmas are extraordinarily complex systems where electrons, ions, and neutral species coexist far from equilibrium, driving chemistry that wouldn't occur otherwise. When plasmas contact material surfaces, the complexity multiplies: energetic particles modify surfaces, surfaces change plasma behavior, and this feedback occurs across vastly different time and length scales. The same nonequilibrium chemistry also matters beyond technology: electrical discharges in planetary atmospheres may have helped form the first building blocks of life.
 
 **By bringing together advanced kinetic theory, surface simulations, and machine learning, we aim to provide understanding and predictive capability where experiments alone cannot go.** For electric propulsion, this means studying thrusters and cathodes that are compatible with alternative propellants, with predictable erosion and performance. For plasma chemistry, it means identifying the plasma conditions that maximize desired product yields. For semiconductor manufacturing, it means controlling nanoscale features by understanding plasma-surface coupling.
 
 ## Our Approach
 
 We develop **physics-based and data-driven models of plasmas** that couple complex chemistry, electromagnetic effects, external circuits, gas flow dynamics, surface kinetics, radiative and heat transfer.
+
+<div class="research-box" markdown="0">
+<h3>Boltzmann Equation for Charged Particles</h3>
+<div class="rb-duo rb-duo-lg">
+<figure>
+<img src="{{ site.url }}{{ site.baseurl }}/images/approach/eepf-boltzmann.png" alt="Electron energy probability function: Monte Carlo vs. two-term and multi-term Boltzmann solutions">
+<figcaption class="rb-credit">Phys. Plasmas 33, 043501 (2026)</figcaption>
+</figure>
+<figure>
+<img src="{{ site.url }}{{ site.baseurl }}/images/examples/MC-Flux.png" alt="Electron velocity distribution function from Monte Carlo simulation">
+<figcaption class="rb-credit">Plasma Sources Sci. Technol. 28, 115015 (2019)</figcaption>
+</figure>
+</div>
+<p>We develop fast and accurate models for numerical solutions of the electron and ion Boltzmann equation, beyond the conventional two-term approximation, which can capture the strong anisotropy of the velocity distribution function and non-local effects. These are important for the definition of new hybrid kinetic–fluid models of plasmas.</p>
+</div>
 
 <div class="research-box" markdown="0">
 <h3>Kinetic Simulations of Low-Temperature Plasmas with Complex Chemistry</h3>
@@ -150,19 +186,4 @@ We develop **physics-based and data-driven models of plasmas** that couple compl
 </div>
 </div>
 <p>Our goal is to develop the next generation of surrogate models and reduced-order models for plasma–material interactions, which make it feasible to explore the vast parameter space of plasma chemistry and surface conditions at a fraction of the cost.</p>
-</div>
-
-<div class="research-box" markdown="0">
-<h3>Boltzmann Equation for Charged Particles</h3>
-<div class="rb-duo rb-duo-lg">
-<figure>
-<img src="{{ site.url }}{{ site.baseurl }}/images/approach/eepf-boltzmann.png" alt="Electron energy probability function: Monte Carlo vs. two-term and multi-term Boltzmann solutions">
-<figcaption class="rb-credit">Phys. Plasmas 33, 043501 (2026)</figcaption>
-</figure>
-<figure>
-<img src="{{ site.url }}{{ site.baseurl }}/images/examples/MC-Flux.png" alt="Electron velocity distribution function from Monte Carlo simulation">
-<figcaption class="rb-credit">Plasma Sources Sci. Technol. 28, 115015 (2019)</figcaption>
-</figure>
-</div>
-<p>We develop fast and accurate models for numerical solutions of the electron and ion Boltzmann equation, beyond the conventional two-term approximation, which can capture the strong anisotropy of the velocity distribution function and non-local effects. These are important for the definition of new hybrid kinetic–fluid models of plasmas.</p>
 </div>
