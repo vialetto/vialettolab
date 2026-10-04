@@ -1,67 +1,161 @@
 ---
-title: "Positions"
+title: "Join the Lab"
 layout: textlay
 description: "Research opportunities in computational plasma physics at UCLA for PhD students, postdocs, and undergraduates, plus fellowships and summer funding."
 permalink: /positions/
 ---
 
-<div class="research-box" markdown="1">
+<style>
+.join-intro { font-size: 18px; line-height: 1.6; color: #444; margin: 10px 0 30px 0; max-width: 860px; }
+.join-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin: 0 0 40px 0; }
+.join-card { display: flex; flex-direction: column; background: #f8f9fa; border: 1px solid #e0e0e0; border-top: 4px solid #3498db; border-radius: 10px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.join-card h3 { margin: 0 0 10px 0; font-size: 21px; color: #2c3e50; }
+.join-card p { font-size: 16px; line-height: 1.55; color: #444; margin: 0 0 12px 0; }
+.join-card .join-btn { margin-top: auto; align-self: flex-start; }
+.join-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 15px; border: 1px solid #337ab7; border-radius: 6px; color: #337ab7; background: #fff; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.join-btn:hover, .join-btn:focus { background: #337ab7; color: #fff; text-decoration: none; }
+.join-contact { border: 1px dashed #c8d2dc; border-radius: 10px; padding: 24px 28px; margin: 0 0 50px 0; }
+.join-contact h2 { margin: 0 0 12px 0; font-size: 24px; color: #2c3e50; }
+.join-contact ul { margin: 0 0 18px 0; padding-left: 20px; font-size: 16px; line-height: 1.6; color: #444; }
+.join-contact code { font-size: 14px; color: #2c3e50; background: #f2f6f9; padding: 2px 6px; border-radius: 4px; }
+.join-section h2 { font-size: 26px; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; margin: 0 0 16px 0; }
+.join-section > p { font-size: 16px; line-height: 1.6; color: #444; max-width: 900px; }
+.join-tip { background: #f2f6f9; border-left: 4px solid #3498db; border-radius: 4px; padding: 12px 16px; font-size: 15px; color: #444; margin: 16px 0 22px 0; }
+.fund-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 0 0 14px 0; }
+.fund { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 18px; }
+.fund h4 { margin: 0 0 8px 0; font-size: 17px; font-weight: 700; line-height: 1.3; }
+.fund p { margin: 0 0 4px 0; font-size: 15px; line-height: 1.5; color: #555; }
+.fund-wide { grid-column: 1 / -1; }
+.fund .fund-label { font-weight: 700; color: #2c3e50; }
+.join-note { font-size: 14px; color: #777; font-style: italic; margin: 6px 0 50px 0; }
+</style>
 
-### Positions
-We have positions available for enthusiastic students and postdocs with background experience in engineering and/or physics.
+# Join the Lab
 
-#### **Postdoctoral Researchers**
-We welcome interest from potential postdocs. However, at this time, we can only consider applicants who have already secured external funding.
+<p class="join-intro">
+We welcome curious and motivated students and researchers with a background in engineering or physics who want to build models and simulations of plasmas and their interactions with materials. Experience with programming (for example Python or C++) and numerical methods is helpful, but curiosity and motivation matter most. To see what we work on, visit our <a href="{{ site.url }}{{ site.baseurl }}/research/">research page</a>.
+</p>
 
-#### **Graduate Students**
-Prospective students interested in this area of research should apply to the [Doctoral Program in Mechanical and Aerospace Engineering](https://www.mae.ucla.edu/graduate-admissions/).
-We highly encourage you to apply for scholarships and fellowships to support your graduate education. A list of those is available below.
+<div class="join-paths" markdown="0">
 
-#### **Undergraduate Students**
-UCLA undergraduates interested in summer or academic year research opportunities should contact Prof. Vialetto with their CV and transcript.
+<div class="join-card">
+<h3>PhD Students</h3>
+<p>Prospective PhD students should apply to the Doctoral Program in Mechanical and Aerospace Engineering at UCLA and mention their interest in our group in the application.</p>
+<p>We strongly encourage you to apply for external fellowships as well (<a href="#fellowships">see below</a>).</p>
+<a class="join-btn" href="https://www.mae.ucla.edu/graduate-admissions/" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> MAE graduate admissions</a>
+</div>
+
+<div class="join-card">
+<h3>UCLA Undergraduates</h3>
+<p>Research opportunities are available during the academic year and over the summer. Email Prof. Vialetto with your CV and transcript.</p>
+<p>Most summer funding requires a faculty mentor before you apply, so reach out in the fall or early winter (<a href="#summer">see below</a>).</p>
+<a class="join-btn" href="mailto:vialetto@ucla.edu?subject=Prospective%20undergraduate%20researcher"><i class="fa-regular fa-envelope"></i> Email Prof. Vialetto</a>
+</div>
+
+<div class="join-card">
+<h3>Postdoctoral Researchers</h3>
+<p>We welcome interest from prospective postdocs. At this time, we can only consider applicants who have secured their own external funding, such as a fellowship.</p>
+<p>Get in touch to discuss research fit.</p>
+<a class="join-btn" href="mailto:vialetto@ucla.edu?subject=Prospective%20postdoc"><i class="fa-regular fa-envelope"></i> Email Prof. Vialetto</a>
+</div>
 
 </div>
 
-<div class="research-box" markdown="1">
-
-### Fellowships & Scholarships
-We strongly encourage students to pursue external fellowships and scholarships to support their research with the lab. Outside funding gives you more freedom in choosing your research direction, and we are glad to help you prepare an application. Reach out early to talk through your interests and we can advise on fit and drafts.
-
-If you are an undergraduate planning to go to graduate school, the NSF GRFP is the place to start: apply in the fall of your senior year. If you're already in your first year of graduate school, you may still be eligible.
-
-* [NSF Graduate Research Fellowship Program](https://www.nsfgrfp.org/):
-  three years of support for graduate study in NSF-supported fields; open to U.S. citizens, nationals, and permanent residents.
-* [Hertz Foundation Fellowship](https://www.hertzfoundation.org/):
-  up to five years of support for PhD work in the applied physical and biological sciences, mathematics, and engineering.
-* [National Defense Science and Engineering Graduate Fellowship](https://www.ndseg.org/):
-  three years of support for doctoral study in DoD-relevant science and engineering fields.
-* [DOE Computational Science Graduate Fellowship](https://www.krellinst.org/csgf/):
-  up to four years of support for students using computing to solve science and engineering problems.
-* [GEM Fellowship](https://www.gemfellowship.org/):
-  fellowship plus paid internships for students from groups underrepresented in engineering and science.
-* [Amelia Earhart Fellowship](https://www.zonta.org/Web/Web/Programs/Education/Amelia_Earhart_Fellowship.aspx):
-  for women in PhD programs in aerospace-related science and engineering.
-* [NASA Space Technology Graduate Research Opportunities (NSTGRO)](https://www.nasa.gov/learning-resources/internship-programs/nasa-fellowships/):
-  up to four years of support for space-technology research aligned with NASA's priorities; includes a Visiting Technologist Experience at a NASA center. Applications are submitted by the faculty advisor through NSPIRES, typically due late January. Contact us by early January if you want to apply. U.S. citizens, nationals, and permanent residents at U.S. institutions.
-
-Eligibility rules and deadlines change year to year. Always check the program's own site before you plan around them.
-
+<div class="join-contact" markdown="0">
+<h2>Getting in touch</h2>
+<p style="font-size: 16px; color: #444;">When you email <a href="mailto:vialetto@ucla.edu">vialetto@ucla.edu</a>, please include:</p>
+<ul>
+<li>your CV (and, for undergraduates, an unofficial transcript);</li>
+<li>a few sentences on which of our research areas interests you and why;</li>
+<li>any relevant experience, such as research projects, programming, or coursework in plasma physics, fluid mechanics, or numerical methods.</li>
+</ul>
+<p style="font-size: 16px; color: #444; margin: 0;">A subject line like <code>Prospective PhD student: Your Name</code> helps us find your message.</p>
 </div>
 
-<div class="research-box" markdown="1">
+<div class="join-section" id="fellowships" markdown="0">
+<h2>Fellowships &amp; Scholarships</h2>
+<p>We strongly encourage students to pursue external fellowships. Outside funding gives you more freedom in choosing your research direction, and we are glad to help you prepare an application. Reach out early to talk through your interests, and we can advise on fit and give feedback on drafts.</p>
 
-### Summer Research Support
-UCLA undergraduates who want to do research with the lab over the summer have several funding options. Most deadlines fall between January and March, and nearly all of them require you to have a faculty mentor lined up before you apply. So talk to us in the fall or early winter, not in the spring.
+<div class="join-tip"><strong>Where to start:</strong> if you are an undergraduate planning to go to graduate school, apply to the NSF GRFP in the fall of your senior year. If you are already in your first year of graduate school, you may still be eligible.</div>
 
-* [URC-Sciences Summer Program](https://sciences.ugresearch.ucla.edu/programs-and-scholarships/urc-sciences-summer-program/):
-  the main option for most students. Ten weeks of full-time research with a UCLA faculty mentor, up to $6,000 (full-time) or $2,000 (part-time, alongside Summer Sessions). UCLA undergraduates only, 3.0 GPA, must already have a faculty mentor and completed lab safety training, must intend to pursue a PhD, and cannot be receiving other summer funding for lab work. Applications are submitted through MyUCLA; the 2026 window ran January 12 – March 2.
-* [UC LEADS](https://sciences.ugresearch.ucla.edu/programs-and-scholarships/uc-leads/):
-  a two-year fellowship, not a summer program — up to $6,000/year for academic-year research plus a $5,000 summer scholarship. Nine UCLA students per cohort. Physical sciences or engineering majors only (UCLA's program no longer admits life science majors), rising juniors, educationally or economically disadvantaged, U.S. citizens, permanent residents, or AB-540. Note that the second summer is spent at a different UC campus. Deadline was March 1, 2026.
-* [SURP (Summer Undergraduate Research Program, Samueli)](https://www.seasoasa.ucla.edu/surp/):
-  a structure, not a funding source — SURP does not place or fund students in labs. It wraps a cohort experience (workshops, progress reports, poster symposium) around students who are new to research and have already joined a lab, where the faculty mentor supplies the stipend. If you want to do this, we have to enroll you and fund you; the student's part is an interest form. Ten-week commitment; in 2026 it ran June 22 – August 28.
-* [UCLA Research Programs (master listing)](https://sciences.ugresearch.ucla.edu/programs-and-scholarships/research-programs/):
-  central directory of UCLA undergraduate research programs, scholarships, and awards across disciplines. Worth browsing for program-specific options not listed here.
+<div class="fund-grid">
 
-Program details and deadlines change every year. Always confirm on the program's own site, and contact us early — for most of these, we need to be involved before you apply.
+<div class="fund">
+<h4><a href="https://www.nsfgrfp.org/" target="_blank" rel="noopener">NSF Graduate Research Fellowship (GRFP)</a></h4>
+<p><span class="fund-label">Support:</span> three years of graduate study in NSF-supported fields.</p>
+<p><span class="fund-label">Eligibility:</span> U.S. citizens, nationals, and permanent residents.</p>
+</div>
 
+<div class="fund">
+<h4><a href="https://www.hertzfoundation.org/" target="_blank" rel="noopener">Hertz Foundation Fellowship</a></h4>
+<p><span class="fund-label">Support:</span> up to five years of PhD work.</p>
+<p><span class="fund-label">Fields:</span> applied physical and biological sciences, mathematics, and engineering.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://www.ndseg.org/" target="_blank" rel="noopener">National Defense Science and Engineering Graduate Fellowship (NDSEG)</a></h4>
+<p><span class="fund-label">Support:</span> three years of doctoral study.</p>
+<p><span class="fund-label">Fields:</span> DoD-relevant science and engineering.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://www.krellinst.org/csgf/" target="_blank" rel="noopener">DOE Computational Science Graduate Fellowship (CSGF)</a></h4>
+<p><span class="fund-label">Support:</span> up to four years.</p>
+<p><span class="fund-label">Fields:</span> using computing to solve science and engineering problems.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://www.gemfellowship.org/" target="_blank" rel="noopener">GEM Fellowship</a></h4>
+<p><span class="fund-label">Support:</span> fellowship plus paid internships.</p>
+<p><span class="fund-label">Eligibility:</span> students from groups underrepresented in engineering and science.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://www.zonta.org/Web/Web/Programs/Education/Amelia_Earhart_Fellowship.aspx" target="_blank" rel="noopener">Amelia Earhart Fellowship</a></h4>
+<p><span class="fund-label">Eligibility:</span> women in PhD programs in aerospace-related science and engineering.</p>
+</div>
+
+<div class="fund fund-wide">
+<h4><a href="https://www.nasa.gov/learning-resources/internship-programs/nasa-fellowships/" target="_blank" rel="noopener">NASA Space Technology Graduate Research Opportunities (NSTGRO)</a></h4>
+<p><span class="fund-label">Support:</span> up to four years of space-technology research aligned with NASA's priorities, including a Visiting Technologist Experience at a NASA center.</p>
+<p><span class="fund-label">Eligibility:</span> U.S. citizens, nationals, and permanent residents at U.S. institutions.</p>
+<p><span class="fund-label">How to apply:</span> the faculty advisor submits the application through NSPIRES, typically due in late January. Contact us by early January if you want to apply.</p>
+</div>
+
+</div>
+<p class="join-note">Eligibility rules and deadlines change from year to year. Always check the program's own site before you plan around them.</p>
+</div>
+
+<div class="join-section" id="summer" markdown="0">
+<h2>Summer Research for UCLA Undergraduates</h2>
+<p>UCLA undergraduates who want to do research with the lab over the summer have several funding options. Most deadlines fall between January and March, and nearly all require a faculty mentor before you apply, so talk to us in the fall or early winter rather than in the spring.</p>
+
+<div class="fund-grid">
+
+<div class="fund">
+<h4><a href="https://sciences.ugresearch.ucla.edu/programs-and-scholarships/urc-sciences-summer-program/" target="_blank" rel="noopener">URC-Sciences Summer Program</a></h4>
+<p>The main option for most students: ten weeks of full-time research with a UCLA faculty mentor.</p>
+<p><span class="fund-label">Support:</span> up to $6,000 full-time, or $2,000 part-time alongside Summer Sessions.</p>
+<p><span class="fund-label">Eligibility:</span> UCLA undergraduates with a 3.0 GPA who intend to pursue a PhD, have a faculty mentor, have completed lab safety training, and are not receiving other summer funding for lab work.</p>
+<p><span class="fund-label">How to apply:</span> through MyUCLA, typically between January and early March.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://sciences.ugresearch.ucla.edu/programs-and-scholarships/uc-leads/" target="_blank" rel="noopener">UC LEADS</a></h4>
+<p>A two-year fellowship (not only a summer program) for nine UCLA students per cohort. The second summer is spent at a different UC campus.</p>
+<p><span class="fund-label">Support:</span> up to $6,000 per year for academic-year research, plus a $5,000 summer scholarship.</p>
+<p><span class="fund-label">Eligibility:</span> rising juniors in the physical sciences or engineering who are educationally or economically disadvantaged; U.S. citizens, permanent residents, or AB-540 students.</p>
+<p><span class="fund-label">Deadline:</span> typically early March.</p>
+</div>
+
+<div class="fund">
+<h4><a href="https://www.seasoasa.ucla.edu/surp/" target="_blank" rel="noopener">Samueli Summer Undergraduate Research Program (SURP)</a></h4>
+<p>A ten-week program (late June to late August) for students who are new to research, with workshops, progress reports, and a closing poster symposium.</p>
+<p><span class="fund-label">How it works:</span> SURP does not place or fund students. Once you have joined our lab, we enroll you and provide your stipend; your part is to fill out an interest form.</p>
+</div>
+
+
+</div>
+<p style="font-size: 16px; color: #444; margin: 4px 0 6px 0;">For more options, browse the <a href="https://sciences.ugresearch.ucla.edu/programs-and-scholarships/research-programs/" target="_blank" rel="noopener">UCLA Research Programs directory</a>, the central list of undergraduate research programs, scholarships, and awards across disciplines.</p>
+<p class="join-note">Program details and deadlines change every year. Always confirm on the program's own site, and contact us early: for most of these programs, we need to be involved before you apply.</p>
 </div>
