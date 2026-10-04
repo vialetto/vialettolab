@@ -1,7 +1,7 @@
 ---
-title: "Multiscale Computational Plasma Lab - Home"
+title: "The Multiscale Computational Plasma Lab"
 layout: homelay
-excerpt: "Multiscale Computational Plasma Lab at UCLA"
+description: "UCLA research lab building multiscale models of low-temperature plasmas for electric propulsion, semiconductor processing, and plasma-material interactions."
 permalink: /
 ---
 

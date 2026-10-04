@@ -1,7 +1,7 @@
 ---
-title: "Multiscale Computational Plasma Lab - Research"
+title: "Research"
 layout: textlay
-excerpt: "Multiscale Computational Plasma Lab -- Research"
+description: "Kinetic simulations, surface models, data assimilation, and surrogate modeling of low-temperature plasmas for electric propulsion and semiconductor fabrication."
 permalink: /research/
 ---
 

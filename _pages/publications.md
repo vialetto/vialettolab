@@ -1,7 +1,7 @@
 ---
-title: "Multiscale Computational Plasma Lab - Publications"
+title: "Publications"
 layout: gridlay
-excerpt: "Multiscale Computational Plasma Lab -- Publications."
+description: "Journal articles and preprints from the Multiscale Computational Plasma Lab at UCLA on plasma kinetics, chemistry, and plasma-material interactions."
 permalink: /publications/
 ---
 

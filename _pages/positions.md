@@ -1,7 +1,7 @@
 ---
-title: "Multiscale Computational Plasma Lab - Positions"
+title: "Positions"
 layout: textlay
-excerpt: "Multiscale Computational Plasma Lab: Positions"
+description: "Research opportunities in computational plasma physics at UCLA for PhD students, postdocs, and undergraduates, plus fellowships and summer funding."
 permalink: /positions/
 ---
 

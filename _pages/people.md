@@ -1,7 +1,7 @@
 ---
-title: "Multiscale Computational Plasma Lab - People"
+title: "People"
 layout: textlay
-excerpt: "Multiscale Computational Plasma Lab: People"
+description: "Meet Prof. Luca Vialetto, Assistant Professor of Mechanical and Aerospace Engineering at UCLA, and the members of the Multiscale Computational Plasma Lab."
 permalink: /people/
 ---
 

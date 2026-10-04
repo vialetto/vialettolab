@@ -1,7 +1,7 @@
 ---
 title: "News"
 layout: textlay
-excerpt: "Multiscale Computational Plasma Lab at UCLA"
+description: "News from the Multiscale Computational Plasma Lab at UCLA: new papers, invited talks, awards, and lab updates."
 permalink: /allnews.html
 ---
 
