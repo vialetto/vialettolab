@@ -2,7 +2,6 @@
 title: "Multiscale Computational Plasma Lab - Research"
 layout: textlay
 excerpt: "Multiscale Computational Plasma Lab -- Research"
-sitemap: false
 permalink: /research/
 ---
 

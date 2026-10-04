@@ -2,7 +2,6 @@
 title: "Multiscale Computational Plasma Lab - People"
 layout: textlay
 excerpt: "Multiscale Computational Plasma Lab: People"
-sitemap: false
 permalink: /people/
 ---
 

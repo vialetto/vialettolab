@@ -2,7 +2,6 @@
 title: "Multiscale Computational Plasma Lab - Home"
 layout: homelay
 excerpt: "Multiscale Computational Plasma Lab at UCLA"
-sitemap: false
 permalink: /
 ---
 

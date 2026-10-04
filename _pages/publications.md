@@ -2,7 +2,6 @@
 title: "Multiscale Computational Plasma Lab - Publications"
 layout: gridlay
 excerpt: "Multiscale Computational Plasma Lab -- Publications."
-sitemap: false
 permalink: /publications/
 ---
 

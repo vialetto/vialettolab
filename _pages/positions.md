@@ -2,7 +2,6 @@
 title: "Multiscale Computational Plasma Lab - Positions"
 layout: textlay
 excerpt: "Multiscale Computational Plasma Lab: Positions"
-sitemap: false
 permalink: /positions/
 ---
 
