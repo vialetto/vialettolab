@@ -5,42 +5,52 @@ excerpt: "Multiscale Computational Plasma Lab: People"
 permalink: /people/
 ---
 
+# People
+
 <style>
-.people-top { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 36px; margin-top: 90px; }
-.people-photo-col { flex-shrink: 0; }
-.people-photo-col p { margin: 0; }
-.people-photo { width: 240px; height: 240px; object-fit: cover; border-radius: 0; display: block; box-shadow: none; margin: 0; }
-.people-info { flex: 1; min-width: 280px; }
-.people-info > p:first-child { margin-top: -4px; }
-.people-name { font-size: 26px; font-weight: bold; color: #222; margin: 0 0 14px 0; line-height: 1.1; }
-.people-meta { font-size: 19px; margin: 5px 0; color: #333; }
-.people-email { font-family: "Courier New", monospace; }
-.people-links { margin-top: 18px; }
-.people-links a { display: block; font-size: 19px; margin-top: 6px; }
+.pi-card { display: flex; align-items: center; flex-wrap: wrap; gap: 40px; margin: 28px 0 50px 0; }
+.pi-photo { width: 230px; height: 230px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); display: block; margin: 0; }
+.pi-info { flex: 1; min-width: 280px; }
+.pi-role { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin: 0 0 6px 0; }
+.pi-name { font-size: 30px; font-weight: 700; color: #2c3e50; margin: 0 0 10px 0; line-height: 1.15; }
+.pi-meta { font-size: 18px; color: #444; margin: 0 0 3px 0; }
+.pi-email { font-size: 17px; margin: 14px 0 0 0; }
+.pi-email i { color: #888; margin-right: 6px; }
+.pi-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.pi-links a { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; font-size: 15px; border: 1px solid #d5dde5; border-radius: 6px; color: #2c3e50; text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+.pi-links a:hover { background: #f2f6f9; border-color: #337ab7; color: #337ab7; }
+.team-note { border: 1px dashed #c8d2dc; border-radius: 8px; padding: 22px 26px; margin: 18px 0 60px 0; color: #555; font-size: 17px; line-height: 1.55; }
+.team-note strong { color: #2c3e50; }
+@media (max-width: 640px) {
+  .pi-card { flex-direction: column; text-align: center; gap: 24px; }
+  .pi-links { justify-content: center; }
+}
 </style>
 
-<div class="people-top">
+<div class="pi-card">
 
-<div class="people-photo-col">
-<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="people-photo" />
+<img src="{{ site.url }}{{ site.baseurl }}/images/bio-pic.jpg" class="pi-photo" alt="Luca Vialetto" />
+
+<div class="pi-info">
+<p class="pi-role">Principal Investigator</p>
+<p class="pi-name">Luca Vialetto</p>
+<p class="pi-meta">Assistant Professor, Mechanical &amp; Aerospace Engineering</p>
+<p class="pi-meta">University of California, Los Angeles</p>
+<p class="pi-email"><i class="fa-regular fa-envelope"></i><a href="mailto:vialetto@ucla.edu">vialetto@ucla.edu</a></p>
+
+<div class="pi-links">
+<a href="https://samueli.ucla.edu/people/luca-vialetto/" target="_blank" rel="noopener"><i class="fa-solid fa-building-columns"></i> UCLA Profile</a>
+<a href="https://scholar.google.com/citations?user=AT0Mxd8AAAAJ&amp;hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+<a href="https://www.linkedin.com/in/luca-vialetto/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+<a href="{{ site.url }}{{ site.baseurl }}/files/Vialetto_CV.pdf"><i class="fa-regular fa-file-pdf"></i> Curriculum Vitae</a>
 </div>
-
-<div class="people-info">
-
-<p class="people-name">PI: Luca Vialetto</p>
-
-<p class="people-meta">Assistant Professor, Mechanical &amp; Aerospace Engineering</p>
-
-<p class="people-meta people-email">vialetto@ucla.edu</p>
-
-<div class="people-links">
-<a href="https://samueli.ucla.edu/people/luca-vialetto/" target="_blank">UCLA Profile &#8599;</a>
-<a href="https://www.linkedin.com/in/luca-vialetto/" target="_blank">LinkedIn &#8599;</a>
-<a href="{{ site.url }}{{ site.baseurl }}/files/Vialetto_CV.pdf">Curriculum Vitae</a>
-</div>
-
 </div>
 
 </div>
 
-<p style="text-align: center; color: #666; font-style: italic; margin-top: 40px;">Updates on new lab members will be announced in Fall 2026.</p>
+## Lab Members
+
+<div class="team-note" markdown="0">
+<strong>We are building the team.</strong> Updates on new lab members will be announced in Fall 2026.
+Interested in joining? See our <a href="{{ site.url }}{{ site.baseurl }}/positions/">open positions</a>.
+</div>
