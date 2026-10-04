@@ -9,9 +9,18 @@
 title: The Multiscale Computational Plasma Lab
 email: vialetto@ucla.edu
 description: > # this means to ignore newlines until "baseurl:"
-  Website of the MCPL Lab.
+  The Multiscale Computational Plasma Lab at UCLA, led by Prof. Luca Vialetto,
+  develops multiscale and multiphysics models for electric propulsion,
+  semiconductor plasma processing, and plasma-material interactions.
 baseurl: ""
 url: "https://vialettoplasmalab.org"
+
+author: Luca Vialetto
+logo: /images/logo.png
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 include:
   - .htaccess
