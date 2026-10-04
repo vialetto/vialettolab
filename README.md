@@ -14,7 +14,7 @@ This website is powered by Jekyll and Bootstrap. It is based on a template origi
 
 For questions about the lab or research opportunities, please contact:
 - Email: vialetto [at] ucla [dot] edu
-- Website: [vialetto.github.io/vialettolab](https://vialetto.github.io/vialettolab)
+- Website: [vialettoplasmalab.org](https://vialettoplasmalab.org)
 
 ---
 
