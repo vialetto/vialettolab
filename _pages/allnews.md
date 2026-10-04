@@ -2,7 +2,6 @@
 title: "News"
 layout: textlay
 excerpt: "Multiscale Computational Plasma Lab at UCLA"
-sitemap: false
 permalink: /allnews.html
 ---
 
