@@ -19,11 +19,16 @@ permalink: /people/
 .pi-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .pi-links a { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; font-size: 15px; border: 1px solid #d5dde5; border-radius: 6px; color: #2c3e50; text-decoration: none; transition: background 0.15s, border-color 0.15s; }
 .pi-links a:hover { background: #f2f6f9; border-color: #337ab7; color: #337ab7; }
-.team-note { border: 1px dashed #c8d2dc; border-radius: 8px; padding: 22px 26px; margin: 18px 0 60px 0; color: #555; font-size: 17px; line-height: 1.55; }
-.team-note strong { color: #2c3e50; }
+.team-grid { display: flex; flex-wrap: wrap; gap: 36px 44px; margin: 28px 0 40px 0; }
+.member { width: 200px; text-align: center; }
+.member-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); display: block; margin: 0 auto 14px auto; }
+.member-name { font-size: 20px; font-weight: 700; color: #2c3e50; margin: 0 0 4px 0; line-height: 1.2; }
+.member-role { font-size: 15px; color: #666; margin: 0; }
+.join-note { color: #555; font-size: 17px; margin: 0 0 60px 0; }
 @media (max-width: 640px) {
   .pi-card { flex-direction: column; text-align: center; gap: 24px; }
   .pi-links { justify-content: center; }
+  .team-grid { justify-content: center; }
 }
 </style>
 
@@ -50,7 +55,26 @@ permalink: /people/
 
 ## Lab Members
 
-<div class="team-note" markdown="0">
-<strong>We are building the team.</strong> Updates on new lab members will be announced in Fall 2026.
-Interested in joining? See our <a href="{{ site.url }}{{ site.baseurl }}/positions/">open positions</a>.
+<div class="team-grid">
+
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/jinghua-zhang.jpg" class="member-photo" alt="Jinghua Zhang" />
+<p class="member-name">Jinghua Zhang</p>
+<p class="member-role">PhD Student</p>
 </div>
+
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/natalia-de-la-torre.jpg" class="member-photo" alt="Natalia De La Torre" />
+<p class="member-name">Natalia De La Torre</p>
+<p class="member-role">PhD Student</p>
+</div>
+
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/ryan-chick.jpg" class="member-photo" alt="Ryan Chick" />
+<p class="member-name">Ryan Chick</p>
+<p class="member-role">Undergraduate Student</p>
+</div>
+
+</div>
+
+<p class="join-note">Interested in joining the lab? See our <a href="{{ site.url }}{{ site.baseurl }}/positions/">open positions</a>.</p>
