@@ -1,7 +1,7 @@
 ---
 title: "Toys"
 layout: textlay
-description: "Interactive calculators and reference databases for low-temperature plasma physics: energy unit converter, reduced electric field, plasma parameters, electron energy distributions, and Paschen curves, plus the databases and codes we use."
+description: "Interactive calculators and reference databases for low-temperature plasma physics: energy and spectroscopic unit converters, reduced electric field, plasma parameters, electron energy distributions, and Paschen curves, plus the databases and codes we use."
 permalink: /toys/
 ---
 
@@ -16,6 +16,7 @@ permalink: /toys/
 .toy > p { font-size: 15px; line-height: 1.55; color: #555; margin: 0 0 16px 0; max-width: 900px; }
 .toy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px 18px; margin: 0 0 14px 0; }
 .toy label { display: block; font-size: 14px; font-weight: 700; color: #666; margin: 0 0 3px 0; }
+.toy label sup, .toy label sub { line-height: 0; }
 .toy input, .toy select { width: 100%; box-sizing: border-box; font-size: 16px; padding: 7px 10px; border: 1px solid #c8d2dc; border-radius: 6px; background: #fff; color: #2c3e50; font-family: inherit; }
 .toy input:focus, .toy select:focus { outline: none; border-color: #337ab7; box-shadow: 0 0 0 2px rgba(51,122,183,0.15); }
 .toy-out { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px 18px; margin: 10px 0 0 0; }
@@ -43,11 +44,22 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
 <!-- ===================== Energy unit converter ===================== -->
 <div class="toy" id="toy-energy">
 <h2>Energy unit converter</h2>
-<p>Type a value in any box and the others update. Wavelength is the photon wavelength with the same energy.</p>
+<p>Type a value in any box and the others update. The kelvin value is the temperature with k<sub>B</sub>T equal to the energy.</p>
 <div class="toy-grid" id="energy-grid"></div>
 <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
 <button class="toy-btn" id="energy-reset">Reset to 1 eV</button>
-<label style="margin:0; display:flex; align-items:center; gap:8px; text-transform:none; font-size:14px;">Digits <select id="energy-digits" style="width:auto;"><option>3</option><option>4</option><option selected>5</option><option>6</option><option>8</option></select></label>
+<label style="margin:0; display:flex; align-items:center; gap:8px; font-size:14px;">Digits <select id="energy-digits" style="width:auto;"><option>3</option><option>4</option><option selected>5</option><option>6</option><option>8</option></select></label>
+</div>
+</div>
+
+<!-- ===================== Spectroscopic unit converter ===================== -->
+<div class="toy" id="toy-spec">
+<h2>Spectroscopic unit converter</h2>
+<p>Photon energy, wavenumber and vacuum wavelength of the same transition. Type a value in any box and the others update.</p>
+<div class="toy-grid" id="spec-grid"></div>
+<div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+<button class="toy-btn" id="spec-reset">Reset to 1 eV</button>
+<label style="margin:0; display:flex; align-items:center; gap:8px; font-size:14px;">Digits <select id="spec-digits" style="width:auto;"><option>3</option><option>4</option><option selected>5</option><option>6</option><option>8</option></select></label>
 </div>
 </div>
 
@@ -175,38 +187,41 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
   }
   function on(ids, fn) { ids.forEach(function (id) { $(id).addEventListener("input", fn); $(id).addEventListener("change", fn); }); fn(); }
 
-  /* ---------- Energy converter ---------- */
-  var units = [
-    ["eV", "eV", 1], ["meV", "meV", 1e-3], ["Kelvin (E = k<sub>B</sub>T)", "K", kB],
-    ["Wavenumber (cm<sup>&minus;1</sup>)", "cm-1", 1.239841984e-4], ["Wavelength (nm)", "nm", null],
-    ["Frequency (THz)", "THz", 4.135667697e-3], ["Joule", "J", 6.241509074e18],
-    ["kJ/mol", "kJ/mol", 1 / 96.48533212], ["kcal/mol", "kcal/mol", 1 / 23.060548], ["Hartree", "Ha", 27.211386246], ["Rydberg", "Ry", 13.605693123]
-  ];
-  var eg = $("energy-grid");
-  units.forEach(function (u, i) {
-    var d = document.createElement("div");
-    d.innerHTML = "<label>" + u[0] + "</label><input type=\"text\" id=\"en-" + i + "\">";
-    eg.appendChild(d);
-  });
-  function setEnergy(eV, skip) {
-    var d = parseInt($("energy-digits").value, 10);
+  /* ---------- Unit converters ---------- */
+  // Each unit: [label, factor in eV per unit] or [label, "inverse", constant] for E = constant / value.
+  function converter(gridId, resetId, digitsId, prefix, units) {
+    var grid = $(gridId);
     units.forEach(function (u, i) {
-      if (i === skip) return;
-      var v;
-      if (u[1] === "nm") v = eV > 0 ? 1239.841984 / eV : NaN; else v = eV / u[2];
-      $("en-" + i).value = isFinite(v) ? Number(v.toPrecision(d)).toString() : "";
+      var d = document.createElement("div");
+      d.innerHTML = "<label>" + u[0] + "</label><input type=\"text\" id=\"" + prefix + i + "\">";
+      grid.appendChild(d);
     });
+    function toEV(u, v) { return u[1] === "inverse" ? (v > 0 ? u[2] / v : NaN) : v * u[1]; }
+    function fromEV(u, eV) { return u[1] === "inverse" ? (eV > 0 ? u[2] / eV : NaN) : eV / u[1]; }
+    function set(eV, skip) {
+      var d = parseInt($(digitsId).value, 10);
+      units.forEach(function (u, i) {
+        if (i === skip) return;
+        var v = fromEV(u, eV);
+        $(prefix + i).value = isFinite(v) ? Number(v.toPrecision(d)).toString() : "";
+      });
+    }
+    units.forEach(function (u, i) {
+      $(prefix + i).addEventListener("input", function () {
+        var v = parseFloat(this.value); if (!isFinite(v)) return;
+        set(toEV(u, v), i);
+      });
+    });
+    $(resetId).addEventListener("click", function () { set(1, -1); });
+    $(digitsId).addEventListener("change", function () { var v = parseFloat($(prefix + "0").value); set(isFinite(v) ? v : 1, -1); });
+    set(1, -1);
   }
-  units.forEach(function (u, i) {
-    $("en-" + i).addEventListener("input", function () {
-      var v = parseFloat(this.value); if (!isFinite(v)) return;
-      var eV = u[1] === "nm" ? (v > 0 ? 1239.841984 / v : NaN) : v * u[2];
-      setEnergy(eV, i);
-    });
-  });
-  $("energy-reset").addEventListener("click", function () { setEnergy(1, -1); });
-  $("energy-digits").addEventListener("change", function () { var v = parseFloat($("en-0").value); setEnergy(isFinite(v) ? v : 1, -1); });
-  setEnergy(1, -1);
+  converter("energy-grid", "energy-reset", "energy-digits", "en-", [
+    ["eV", 1], ["meV", 1e-3], ["Joule", 6.241509074e18], ["Kelvin", kB]
+  ]);
+  converter("spec-grid", "spec-reset", "spec-digits", "sp-", [
+    ["eV", 1], ["Wavenumber (cm<sup>&minus;1</sup>)", 1.239841984e-4], ["Wavelength (nm)", "inverse", 1239.841984], ["Rydberg", 13.605693123]
+  ]);
 
   /* ---------- Reduced field ---------- */
   function pTorr(v, unit) { return unit === "pa" ? v / 133.322368 : unit === "mbar" ? v / 1.33322368 : unit === "atm" ? v * 760 : v; }
