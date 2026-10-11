@@ -68,19 +68,13 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
 <!-- ===================== Plasma parameters ===================== -->
 <div class="toy" id="toy-plasma">
 <h2>Plasma parameter calculator</h2>
-<p>Basic length, time and velocity scales of a weakly ionized plasma. The electron-neutral mean free path and collision frequency use a constant momentum-transfer cross section that you can set.</p>
+<p>The three numbers that tell you whether something is a plasma: the Debye length, the electron plasma frequency, and the number of electrons in a Debye sphere, N<sub>D</sub>, which should be much larger than one for collective behavior.</p>
 <div class="toy-grid">
 <div><label>n<sub>e</sub> (cm<sup>&minus;3</sup>)</label><input id="p-ne" type="text" value="1e10"></div>
 <div><label>T<sub>e</sub> (eV)</label><input id="p-Te" type="number" step="any" value="3"></div>
-<div><label>Pressure (Torr)</label><input id="p-p" type="number" step="any" value="0.01"></div>
-<div><label>Gas temperature (K)</label><input id="p-Tg" type="number" step="any" value="300"></div>
-<div><label>Gas</label><select id="p-gas"><option value="4.0026">He</option><option value="20.180">Ne</option><option value="39.948" selected>Ar</option><option value="83.798">Kr</option><option value="131.29">Xe</option><option value="2.016">H2</option><option value="28.014">N2</option><option value="31.998">O2</option><option value="126.90">I (atomic)</option><option value="custom">Custom</option></select></div>
-<div><label>Ion mass (amu)</label><input id="p-M" type="number" step="any" value="39.948"></div>
-<div><label>&sigma;<sub>en</sub> (10<sup>&minus;16</sup> cm<sup>2</sup>)</label><input id="p-sig" type="number" step="any" value="10"></div>
-<div><label>B (gauss, 0 = none)</label><input id="p-B" type="number" step="any" value="0"></div>
 </div>
 <div class="toy-out" id="p-out"></div>
-<p class="toy-note">Formulas: &lambda;<sub>D</sub> = (&epsilon;<sub>0</sub> T<sub>e</sub>/e n<sub>e</sub>)<sup>1/2</sup>, &omega;<sub>pe</sub> = (e<sup>2</sup> n<sub>e</sub>/&epsilon;<sub>0</sub> m<sub>e</sub>)<sup>1/2</sup>, mean speed v&#772;<sub>e</sub> = (8 e T<sub>e</sub>/&pi; m<sub>e</sub>)<sup>1/2</sup>, Bohm speed u<sub>B</sub> = (e T<sub>e</sub>/M)<sup>1/2</sup>, &lambda;<sub>en</sub> = 1/(N &sigma;), &nu;<sub>en</sub> = N &sigma; v&#772;<sub>e</sub>.</p>
+<p class="toy-note">Formulas: &lambda;<sub>D</sub> = (&epsilon;<sub>0</sub> T<sub>e</sub>/e n<sub>e</sub>)<sup>1/2</sup>, &omega;<sub>pe</sub> = (e<sup>2</sup> n<sub>e</sub>/&epsilon;<sub>0</sub> m<sub>e</sub>)<sup>1/2</sup>, N<sub>D</sub> = (4&pi;/3) n<sub>e</sub> &lambda;<sub>D</sub><sup>3</sup>.</p>
 </div>
 
 <!-- ===================== EEDF ===================== -->
@@ -158,7 +152,6 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
   var kB = 8.617333262e-5;      // eV/K
   var e = 1.602176634e-19;      // C
   var me = 9.1093837015e-31;    // kg
-  var amu = 1.66053906660e-27;  // kg
   var eps0 = 8.8541878128e-12;  // F/m
   var kBJ = 1.380649e-23;       // J/K
 
@@ -232,34 +225,18 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
   }
 
   /* ---------- Plasma parameters ---------- */
-  $("p-gas").addEventListener("change", function () { if (this.value !== "custom") $("p-M").value = this.value; plasma(); });
-  on(["p-ne", "p-Te", "p-p", "p-Tg", "p-M", "p-sig", "p-B"], plasma);
+  on(["p-ne", "p-Te"], plasma);
   function plasma() {
-    var ne = parseFloat($("p-ne").value), Te = num("p-Te"), p = num("p-p"), Tg = num("p-Tg"), M = num("p-M") * amu, sig = num("p-sig") * 1e-16, B = num("p-B") * 1e-4;
-    var N = Ncm3(p, Tg);
+    var ne = parseFloat($("p-ne").value), Te = num("p-Te");
     var lD = Math.sqrt(eps0 * Te / (e * ne * 1e6)) * 100;           // cm
     var wpe = Math.sqrt(e * e * ne * 1e6 / (eps0 * me));
-    var wpi = Math.sqrt(e * e * ne * 1e6 / (eps0 * M));
-    var vbar = Math.sqrt(8 * e * Te / (Math.PI * me)) * 100;        // cm/s
-    var uB = Math.sqrt(e * Te / M) * 100;
-    var lam = 1 / (N * sig);
-    var nu = N * sig * vbar;
     var ND = ne * 4 / 3 * Math.PI * lD * lD * lD;
-    var items = [
-      ["Neutral density N", fmt(N, 4), "cm<sup>&minus;3</sup>"], ["Ionization fraction n<sub>e</sub>/N", fmt(ne / N, 3), ""],
-      ["Debye length &lambda;<sub>D</sub>", fmt(lD * 1e4, 3), "&micro;m"], ["Electrons per Debye sphere", fmt(ND, 3), ""],
-      ["Plasma frequency f<sub>pe</sub>", fmt(wpe / 2 / Math.PI / 1e9, 3), "GHz"], ["Ion plasma frequency f<sub>pi</sub>", fmt(wpi / 2 / Math.PI / 1e6, 3), "MHz"],
-      ["Mean electron speed v&#772;<sub>e</sub>", fmt(vbar, 3), "cm/s"], ["Bohm speed u<sub>B</sub>", fmt(uB, 3), "cm/s"],
-      ["e-n mean free path &lambda;<sub>en</sub>", fmt(lam * 10, 3), "mm"], ["e-n collision frequency &nu;<sub>en</sub>", fmt(nu / 1e6, 3), "MHz"],
-      ["&nu;<sub>en</sub>/&omega;<sub>pe</sub>", fmt(nu / wpe, 3), ""]
-    ];
-    if (B > 0) {
-      var wce = e * B / me, wci = e * B / M;
-      var rLe = Math.sqrt(e * Te / me) / wce * 100, rLi = Math.sqrt(kBJ * Tg / M) / wci * 100;
-      items.push(["Electron cyclotron f<sub>ce</sub>", fmt(wce / 2 / Math.PI / 1e9, 3), "GHz"], ["Ion cyclotron f<sub>ci</sub>", fmt(wci / 2 / Math.PI / 1e3, 3), "kHz"],
-        ["Electron Larmor radius", fmt(rLe * 10, 3), "mm"], ["Ion Larmor radius (T<sub>i</sub> = T<sub>g</sub>)", fmt(rLi * 10, 3), "mm"], ["Hall parameter &omega;<sub>ce</sub>/&nu;<sub>en</sub>", fmt(wce / nu, 3), ""]);
-    }
-    out("p-out", items);
+    out("p-out", [
+      ["Debye length &lambda;<sub>D</sub>", fmt(lD * 1e4, 3), "&micro;m"],
+      ["Plasma frequency f<sub>pe</sub> = &omega;<sub>pe</sub>/2&pi;", fmt(wpe / 2 / Math.PI / 1e9, 3), "GHz"],
+      ["Angular plasma frequency &omega;<sub>pe</sub>", fmt(wpe, 3), "rad/s"],
+      ["Electrons in a Debye sphere N<sub>D</sub>", fmt(ND, 3), ""]
+    ]);
   }
 
   /* ---------- SVG plot helper ---------- */
