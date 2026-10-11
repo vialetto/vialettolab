@@ -248,6 +248,7 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) t.push(Number(v.toPrecision(10)));
     return t;
   }
+  function pow10(t) { return "10<tspan dy=\"-7\" font-size=\"10\">" + String(t).replace("-", "&minus;") + "</tspan>"; }
   function plot(el, series, o) {
     var W = 720, H = 360, L = 70, R = 20, T = 20, Bm = 50;
     var xs = [], ys = [];
@@ -259,11 +260,11 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     var h = "<svg viewBox=\"0 0 " + W + " " + H + "\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"inherit\" font-size=\"13\">";
     niceTicks(x0, x1, o.xlog).forEach(function (t) {
       var X = sx(t); h += "<line x1=\"" + X + "\" y1=\"" + T + "\" x2=\"" + X + "\" y2=\"" + (H - Bm) + "\" stroke=\"#eee\"/>";
-      h += "<text x=\"" + X + "\" y=\"" + (H - Bm + 18) + "\" text-anchor=\"middle\" fill=\"#555\">" + (o.xlog ? "10^" + t : t) + "</text>";
+      h += "<text x=\"" + X + "\" y=\"" + (H - Bm + 18) + "\" text-anchor=\"middle\" fill=\"#555\">" + (o.xlog ? pow10(t) : t) + "</text>";
     });
     niceTicks(y0, y1, o.ylog).forEach(function (t) {
       var Y = sy(t); h += "<line x1=\"" + L + "\" y1=\"" + Y + "\" x2=\"" + (W - R) + "\" y2=\"" + Y + "\" stroke=\"#eee\"/>";
-      h += "<text x=\"" + (L - 8) + "\" y=\"" + (Y + 4) + "\" text-anchor=\"end\" fill=\"#555\">" + (o.ylog ? "10^" + t : t) + "</text>";
+      h += "<text x=\"" + (L - 8) + "\" y=\"" + (Y + 4) + "\" text-anchor=\"end\" fill=\"#555\">" + (o.ylog ? pow10(t) : t) + "</text>";
     });
     h += "<rect x=\"" + L + "\" y=\"" + T + "\" width=\"" + (W - L - R) + "\" height=\"" + (H - T - Bm) + "\" fill=\"none\" stroke=\"#999\"/>";
     h += "<text x=\"" + (L + (W - L - R) / 2) + "\" y=\"" + (H - 10) + "\" text-anchor=\"middle\" fill=\"#333\">" + o.xlabel + "</text>";
@@ -311,7 +312,7 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     var series = [{ name: x === 1 ? "Maxwellian" : "x = " + x, pts: pts, color: "#2980b9" }];
     if (x !== 1) series.push({ name: "Maxwellian, same &lang;&epsilon;&rang;", pts: ptsM, color: "#95a5a6", dash: true });
     var top = Math.log10(Math.max(pts[0][1], ptsM[0][1]));
-    plot($("e-plot"), series, { ylog: true, xlabel: "Electron energy (eV)", ylabel: "EEPF (eV^-3/2)", ymin: Math.ceil(top) - 8, ymax: Math.ceil(top), xmin: 0, xmax: emax, marks: [[th, "threshold"]] });
+    plot($("e-plot"), series, { ylog: true, xlabel: "Electron energy (eV)", ylabel: "EEPF (eV<tspan dy=\"-7\" font-size=\"10\">&minus;3/2</tspan><tspan dy=\"7\">)</tspan>", ymin: Math.ceil(top) - 8, ymax: Math.ceil(top), xmin: 0, xmax: emax, marks: [[th, "threshold"]] });
     out("e-out", [["Effective T<sub>e</sub> = 2&lang;&epsilon;&rang;/3", fmt(Te, 3), "eV"], ["Fraction above &epsilon;<sub>th</sub>", fmt(above / total, 3), ""], ["Electrons above &epsilon;<sub>th</sub>", "1 in " + fmt(total / above, 3), ""], ["Mean energy (numerical check)", fmt(mean / total, 4), "eV"]]);
   }
 
