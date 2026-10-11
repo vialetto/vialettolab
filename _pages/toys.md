@@ -84,12 +84,11 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
 <div class="toy-grid">
 <div><label>Mean energy &lang;&epsilon;&rang; (eV)</label><input id="e-mean" type="number" step="any" value="4.5"></div>
 <div><label>Shape x</label><select id="e-x"><option value="1" selected>1 (Maxwellian)</option><option value="1.5">1.5</option><option value="2">2 (Druyvesteyn)</option><option value="3">3</option></select></div>
-<div><label>Threshold &epsilon;<sub>th</sub> (eV)</label><input id="e-th" type="number" step="any" value="11.5"></div>
 <div><label>Plot up to (eV)</label><input id="e-max" type="number" step="any" value="30"></div>
 </div>
 <div class="toy-out" id="e-out"></div>
 <div class="toy-plot" id="e-plot"></div>
-<p class="toy-note">The default threshold of 11.5 eV is the first excitation threshold of argon. For a Maxwellian, T<sub>e</sub> = 2&lang;&epsilon;&rang;/3.</p>
+<p class="toy-note">For a Maxwellian, T<sub>e</sub> = 2&lang;&epsilon;&rang;/3.</p>
 </div>
 
 <!-- ===================== Paschen ===================== -->
@@ -238,52 +237,55 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     ]);
   }
 
-  /* ---------- SVG plot helper ---------- */
-  function niceTicks(lo, hi, log) {
+  /* ---------- SVG plot helper (matplotlib "tecplot-like" style) ---------- */
+  function majorTicks(lo, hi, log) {
     var t = [];
-    if (log) { for (var k = Math.ceil(lo); k <= Math.floor(hi); k++) t.push(k); if (t.length > 8) t = t.filter(function (v, i) { return i % 2 === 0; }); return t; }
+    if (log) { for (var k = Math.ceil(lo - 1e-9); k <= Math.floor(hi + 1e-9); k++) t.push(k); if (t.length > 8) t = t.filter(function (v) { return v % 2 === 0; }); return t; }
     var span = hi - lo, step = Math.pow(10, Math.floor(Math.log10(span / 5))), r = span / step / 5;
     step *= r >= 4 ? 10 : r >= 2 ? 5 : r >= 1 ? 2 : 1;
-    for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) t.push(Number(v.toPrecision(10)));
+    for (var v = Math.ceil(lo / step - 1e-9) * step; v <= hi + 1e-9; v += step) t.push(Number(v.toPrecision(10)));
     return t;
   }
-  function pow10(t) { return "10<tspan dy=\"-7\" font-size=\"10\">" + String(t).replace("-", "&minus;") + "</tspan>"; }
+  function minorTicks(maj, lo, hi, log) {
+    var t = [];
+    if (log) { for (var k = Math.floor(lo) - 1; k <= Math.ceil(hi); k++) for (var m = 2; m <= 9; m++) { var v = k + Math.log10(m); if (v > lo && v < hi) t.push(v); } return t; }
+    if (maj.length < 2) return t;
+    var step = maj[1] - maj[0], mant = step / Math.pow(10, Math.floor(Math.log10(step))), n = Math.abs(mant - 2) < 1e-9 ? 4 : 5, ds = step / n;
+    for (var v2 = maj[0] - step; v2 <= hi; v2 += ds) if (v2 > lo && v2 < hi) t.push(v2);
+    return t;
+  }
+  function pow10(t) { return "10<tspan dy=\"-8\" font-size=\"12\">" + String(t).replace("-", "&minus;") + "</tspan>"; }
   function plot(el, series, o) {
-    var W = 720, H = 360, L = 70, R = 20, T = 20, Bm = 50;
+    var W = 720, H = 400, L = 90, R = 24, T = 24, Bm = 70, FS = 16;
     var xs = [], ys = [];
     series.forEach(function (s) { s.pts.forEach(function (p) { if (isFinite(p[0]) && isFinite(p[1]) && (!o.xlog || p[0] > 0) && (!o.ylog || p[1] > 0)) { xs.push(o.xlog ? Math.log10(p[0]) : p[0]); ys.push(o.ylog ? Math.log10(p[1]) : p[1]); } }); });
     var x0 = o.xmin !== undefined ? o.xmin : Math.min.apply(null, xs), x1 = o.xmax !== undefined ? o.xmax : Math.max.apply(null, xs);
     var y0 = o.ymin !== undefined ? o.ymin : Math.min.apply(null, ys), y1 = o.ymax !== undefined ? o.ymax : Math.max.apply(null, ys);
     if (y1 === y0) y1 = y0 + 1;
     var sx = function (x) { return L + (x - x0) / (x1 - x0) * (W - L - R); }, sy = function (y) { return H - Bm - (y - y0) / (y1 - y0) * (H - T - Bm); };
-    var h = "<svg viewBox=\"0 0 " + W + " " + H + "\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"inherit\" font-size=\"13\">";
-    niceTicks(x0, x1, o.xlog).forEach(function (t) {
-      var X = sx(t); h += "<line x1=\"" + X + "\" y1=\"" + T + "\" x2=\"" + X + "\" y2=\"" + (H - Bm) + "\" stroke=\"#eee\"/>";
-      h += "<text x=\"" + X + "\" y=\"" + (H - Bm + 18) + "\" text-anchor=\"middle\" fill=\"#555\">" + (o.xlog ? pow10(t) : t) + "</text>";
-    });
-    niceTicks(y0, y1, o.ylog).forEach(function (t) {
-      var Y = sy(t); h += "<line x1=\"" + L + "\" y1=\"" + Y + "\" x2=\"" + (W - R) + "\" y2=\"" + Y + "\" stroke=\"#eee\"/>";
-      h += "<text x=\"" + (L - 8) + "\" y=\"" + (Y + 4) + "\" text-anchor=\"end\" fill=\"#555\">" + (o.ylog ? pow10(t) : t) + "</text>";
-    });
-    h += "<rect x=\"" + L + "\" y=\"" + T + "\" width=\"" + (W - L - R) + "\" height=\"" + (H - T - Bm) + "\" fill=\"none\" stroke=\"#999\"/>";
-    h += "<text x=\"" + (L + (W - L - R) / 2) + "\" y=\"" + (H - 10) + "\" text-anchor=\"middle\" fill=\"#333\">" + o.xlabel + "</text>";
-    h += "<text transform=\"translate(16," + (T + (H - T - Bm) / 2) + ") rotate(-90)\" text-anchor=\"middle\" fill=\"#333\">" + o.ylabel + "</text>";
+    var h = "<svg viewBox=\"0 0 " + W + " " + H + "\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"" + FS + "\">";
+    var xmaj = majorTicks(x0, x1, o.xlog), ymaj = majorTicks(y0, y1, o.ylog);
+    var tick = function (X, Y, dx, dy, w) { return "<line x1=\"" + X + "\" y1=\"" + Y + "\" x2=\"" + (X + dx) + "\" y2=\"" + (Y + dy) + "\" stroke=\"#000\" stroke-width=\"" + w + "\"/>"; };
+    minorTicks(xmaj, x0, x1, o.xlog).forEach(function (t) { h += tick(sx(t), H - Bm, 0, -3, 1.5); });
+    minorTicks(ymaj, y0, y1, o.ylog).forEach(function (t) { h += tick(L, sy(t), 3, 0, 1.5); });
+    xmaj.forEach(function (t) { var X = sx(t); h += tick(X, H - Bm, 0, -7, 2); h += "<text x=\"" + X + "\" y=\"" + (H - Bm + 22) + "\" text-anchor=\"middle\" fill=\"#000\">" + (o.xlog ? pow10(t) : t) + "</text>"; });
+    ymaj.forEach(function (t) { var Y = sy(t); h += tick(L, Y, 7, 0, 2); h += "<text x=\"" + (L - 10) + "\" y=\"" + (Y + 6) + "\" text-anchor=\"end\" fill=\"#000\">" + (o.ylog ? pow10(t) : t) + "</text>"; });
+    h += "<rect x=\"" + L + "\" y=\"" + T + "\" width=\"" + (W - L - R) + "\" height=\"" + (H - T - Bm) + "\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\"/>";
+    h += "<text x=\"" + (L + (W - L - R) / 2) + "\" y=\"" + (H - 14) + "\" text-anchor=\"middle\" fill=\"#000\" font-weight=\"700\">" + o.xlabel + "</text>";
+    h += "<text transform=\"translate(22," + (T + (H - T - Bm) / 2) + ") rotate(-90)\" text-anchor=\"middle\" fill=\"#000\" font-weight=\"700\">" + o.ylabel + "</text>";
     series.forEach(function (s, i) {
       var d = "", pen = false;
       s.pts.forEach(function (p) {
         var ok = isFinite(p[0]) && isFinite(p[1]) && (!o.xlog || p[0] > 0) && (!o.ylog || p[1] > 0);
         if (!ok) { pen = false; return; }
         var X = sx(o.xlog ? Math.log10(p[0]) : p[0]), Y = sy(o.ylog ? Math.log10(p[1]) : p[1]);
-        if (Y < T - 5 || Y > H - Bm + 5) { pen = false; return; }
+        if (Y < T || Y > H - Bm || X < L || X > W - R) { pen = false; return; }
         d += (pen ? "L" : "M") + X.toFixed(1) + "," + Y.toFixed(1); pen = true;
       });
-      h += "<path d=\"" + d + "\" fill=\"none\" stroke=\"" + s.color + "\" stroke-width=\"2.2\"" + (s.dash ? " stroke-dasharray=\"6,5\"" : "") + "/>";
-      h += "<text x=\"" + (W - R - 8) + "\" y=\"" + (T + 18 + 18 * i) + "\" text-anchor=\"end\" fill=\"" + s.color + "\" font-weight=\"700\">" + s.name + "</text>";
-    });
-    (o.marks || []).forEach(function (m) {
-      var X = sx(o.xlog ? Math.log10(m[0]) : m[0]);
-      h += "<line x1=\"" + X + "\" y1=\"" + T + "\" x2=\"" + X + "\" y2=\"" + (H - Bm) + "\" stroke=\"#c0392b\" stroke-dasharray=\"4,4\"/>";
-      h += "<text x=\"" + (X + 5) + "\" y=\"" + (T + 14) + "\" fill=\"#c0392b\">" + m[1] + "</text>";
+      h += "<path d=\"" + d + "\" fill=\"none\" stroke=\"" + s.color + "\" stroke-width=\"2.5\"" + (s.dash ? " stroke-dasharray=\"8,6\"" : "") + "/>";
+      var ly = T + 24 + 22 * i, lx = W - R - 14;
+      h += "<line x1=\"" + (lx - 150) + "\" y1=\"" + (ly - 5) + "\" x2=\"" + (lx - 112) + "\" y2=\"" + (ly - 5) + "\" stroke=\"" + s.color + "\" stroke-width=\"2.5\"" + (s.dash ? " stroke-dasharray=\"8,6\"" : "") + "/>";
+      h += "<text x=\"" + (lx - 104) + "\" y=\"" + ly + "\" fill=\"#000\">" + s.name + "</text>";
     });
     el.innerHTML = h + "</svg>";
   }
@@ -295,24 +297,22 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     z -= 1; var x = c[0]; for (var i = 1; i < g + 2; i++) x += c[i] / (z + i);
     var t = z + g + 0.5; return Math.sqrt(2 * Math.PI) * Math.pow(t, z + 0.5) * Math.exp(-t) * x;
   }
-  on(["e-mean", "e-x", "e-th", "e-max"], eedf);
+  on(["e-mean", "e-x", "e-max"], eedf);
   function eedf() {
-    var em = num("e-mean"), x = parseFloat($("e-x").value), th = num("e-th"), emax = num("e-max");
+    var em = num("e-mean"), x = parseFloat($("e-x").value), emax = num("e-max");
     if (!(em > 0) || !(emax > 0)) return;
     var g3 = gamma(3 / (2 * x)), g5 = gamma(5 / (2 * x));
     var c1 = x * Math.pow(g5, 1.5) / Math.pow(g3, 2.5);
     var c2 = Math.pow(g5 / g3, x);
     var f = function (en) { return c1 / Math.pow(em, 1.5) * Math.sqrt(en) * Math.exp(-c2 * Math.pow(en / em, x)); };
-    var n = 600, de = Math.max(emax, 3 * th, 10 * em) / n, above = 0, total = 0, mean = 0;
-    for (var i = 0; i <= n; i++) { var en = i * de, w = (i === 0 || i === n) ? 0.5 : 1, v = f(en) * de * w; total += v; mean += en * v; if (en >= th) above += v; }
     var Te = 2 * em / 3;
     var pts = [], ptsM = [];
     for (var j = 1; j <= 300; j++) { var ee = j / 300 * emax; pts.push([ee, f(ee) / Math.sqrt(ee)]); ptsM.push([ee, 2 / Math.sqrt(Math.PI) * Math.pow(Te, -1.5) * Math.exp(-ee / Te)]); }
-    var series = [{ name: x === 1 ? "Maxwellian" : "x = " + x, pts: pts, color: "#2980b9" }];
-    if (x !== 1) series.push({ name: "Maxwellian, same &lang;&epsilon;&rang;", pts: ptsM, color: "#95a5a6", dash: true });
+    var series = [{ name: x === 1 ? "Maxwellian" : x === 2 ? "Druyvesteyn" : "x = " + x, pts: pts, color: "#1f4e79" }];
+    if (x !== 1) series.push({ name: "Maxwellian", pts: ptsM, color: "#c0392b", dash: true });
     var top = Math.log10(Math.max(pts[0][1], ptsM[0][1]));
-    plot($("e-plot"), series, { ylog: true, xlabel: "Electron energy (eV)", ylabel: "EEPF (eV<tspan dy=\"-7\" font-size=\"10\">&minus;3/2</tspan><tspan dy=\"7\">)</tspan>", ymin: Math.ceil(top) - 8, ymax: Math.ceil(top), xmin: 0, xmax: emax, marks: [[th, "threshold"]] });
-    out("e-out", [["Effective T<sub>e</sub> = 2&lang;&epsilon;&rang;/3", fmt(Te, 3), "eV"], ["Fraction above &epsilon;<sub>th</sub>", fmt(above / total, 3), ""], ["Electrons above &epsilon;<sub>th</sub>", "1 in " + fmt(total / above, 3), ""], ["Mean energy (numerical check)", fmt(mean / total, 4), "eV"]]);
+    plot($("e-plot"), series, { ylog: true, xlabel: "Electron energy (eV)", ylabel: "EEPF (eV<tspan dy=\"-7\" font-size=\"10\">&minus;3/2</tspan><tspan dy=\"7\">)</tspan>", ymin: Math.ceil(top) - 8, ymax: Math.ceil(top), xmin: 0, xmax: emax });
+    out("e-out", [["Effective T<sub>e</sub> = 2&lang;&epsilon;&rang;/3", fmt(Te, 3), "eV"]]);
   }
 
   /* ---------- Paschen ---------- */
@@ -330,7 +330,7 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
     var pdmin = Math.E * Math.log(1 + 1 / g) / A, Vmin = Math.E * B / A * Math.log(1 + 1 / g);
     var pts = [];
     for (var i = 0; i <= 400; i++) { var pd = Math.pow(10, -2 + 5 * i / 400); pts.push([pd, VB(pd)]); }
-    plot($("pa-plot"), [{ name: gases[parseInt($("pa-gas").value, 10)][0].replace(/<[^>]+>/g, "") + ", &gamma; = " + g, pts: pts, color: "#2980b9" }],
+    plot($("pa-plot"), [{ name: gases[parseInt($("pa-gas").value, 10)][0].replace(/<[^>]+>/g, "") + ", &gamma; = " + g, pts: pts, color: "#1f4e79" }],
       { xlog: true, ylog: true, xlabel: "pd (Torr cm)", ylabel: "Breakdown voltage (V)", xmin: -2, xmax: 3, ymin: 2, ymax: 5 });
     out("pa-out", [["Minimum breakdown voltage", fmt(Vmin, 3), "V"], ["pd at the minimum", fmt(pdmin, 3), "Torr cm"]]);
   }
