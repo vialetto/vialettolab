@@ -15,12 +15,12 @@ permalink: /toys/
 .toy h2 { margin: 0 0 6px 0; font-size: 24px; color: #2c3e50; border: none; padding: 0; }
 .toy > p { font-size: 15px; line-height: 1.55; color: #555; margin: 0 0 16px 0; max-width: 900px; }
 .toy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px 18px; margin: 0 0 14px 0; }
-.toy label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: #666; margin: 0 0 3px 0; text-transform: uppercase; }
+.toy label { display: block; font-size: 14px; font-weight: 700; color: #666; margin: 0 0 3px 0; }
 .toy input, .toy select { width: 100%; box-sizing: border-box; font-size: 16px; padding: 7px 10px; border: 1px solid #c8d2dc; border-radius: 6px; background: #fff; color: #2c3e50; font-family: inherit; }
 .toy input:focus, .toy select:focus { outline: none; border-color: #337ab7; box-shadow: 0 0 0 2px rgba(51,122,183,0.15); }
 .toy-out { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px 18px; margin: 10px 0 0 0; }
 .toy-out div { background: #fff; border: 1px solid #e6ebf0; border-radius: 6px; padding: 8px 12px; font-size: 15px; color: #444; }
-.toy-out span { display: block; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.04em; }
+.toy-out span { display: block; font-size: 13px; color: #888; }
 .toy-out b { font-size: 17px; color: #2c3e50; font-weight: 700; }
 .toy-plot { background: #fff; border: 1px solid #e6ebf0; border-radius: 8px; margin: 14px 0 0 0; padding: 6px; overflow: hidden; }
 .toy-plot svg { width: 100%; height: auto; display: block; }
