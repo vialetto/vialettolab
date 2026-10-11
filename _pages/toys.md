@@ -101,7 +101,6 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
 <div><label>A (1/cm Torr)</label><input id="pa-A" type="number" step="any"></div>
 <div><label>B (V/cm Torr)</label><input id="pa-B" type="number" step="any"></div>
 <div><label>&gamma; (secondary emission)</label><input id="pa-g" type="number" step="any" value="0.01"></div>
-<div><label>pd of interest (Torr cm)</label><input id="pa-pd" type="number" step="any" value="1"></div>
 </div>
 <div class="toy-out" id="pa-out"></div>
 <div class="toy-plot" id="pa-plot"></div>
@@ -322,18 +321,18 @@ A set of small calculators we use for quick estimates in low-temperature plasma 
   function setGas() { var g = gases[parseInt($("pa-gas").value, 10)]; if (g[0] !== "Custom") { $("pa-A").value = g[1]; $("pa-B").value = g[2]; } }
   setGas();
   $("pa-gas").addEventListener("change", function () { setGas(); paschen(); });
-  on(["pa-A", "pa-B", "pa-g", "pa-pd"], paschen);
+  on(["pa-A", "pa-B", "pa-g"], paschen);
   function paschen() {
-    var A = num("pa-A"), B = num("pa-B"), g = num("pa-g"), pd0 = num("pa-pd");
+    var A = num("pa-A"), B = num("pa-B"), g = num("pa-g");
     if (!(A > 0) || !(B > 0) || !(g > 0)) return;
     var K = Math.log(Math.log(1 + 1 / g));
     var VB = function (pd) { var d = Math.log(A * pd) - K; return d > 0 ? B * pd / d : NaN; };
-    var pdmin = Math.E * Math.log(1 + 1 / g) / A, Vmin = Math.E * B / A * Math.log(1 + 1 / g), pdcut = Math.log(1 + 1 / g) / A;
+    var pdmin = Math.E * Math.log(1 + 1 / g) / A, Vmin = Math.E * B / A * Math.log(1 + 1 / g);
     var pts = [];
     for (var i = 0; i <= 400; i++) { var pd = Math.pow(10, -2 + 5 * i / 400); pts.push([pd, VB(pd)]); }
     plot($("pa-plot"), [{ name: gases[parseInt($("pa-gas").value, 10)][0].replace(/<[^>]+>/g, "") + ", &gamma; = " + g, pts: pts, color: "#2980b9" }],
-      { xlog: true, ylog: true, xlabel: "pd (Torr cm)", ylabel: "Breakdown voltage (V)", xmin: -2, xmax: 3, ymin: 2, ymax: 5, marks: [[pd0, "pd = " + pd0]] });
-    out("pa-out", [["V<sub>B</sub> at pd = " + fmt(pd0, 3) + " Torr cm", fmt(VB(pd0), 3), "V"], ["Minimum breakdown voltage", fmt(Vmin, 3), "V"], ["pd at the minimum", fmt(pdmin, 3), "Torr cm"], ["No breakdown below pd =", fmt(pdcut, 3), "Torr cm"]]);
+      { xlog: true, ylog: true, xlabel: "pd (Torr cm)", ylabel: "Breakdown voltage (V)", xmin: -2, xmax: 3, ymin: 2, ymax: 5 });
+    out("pa-out", [["Minimum breakdown voltage", fmt(Vmin, 3), "V"], ["pd at the minimum", fmt(pdmin, 3), "Torr cm"]]);
   }
 
 })();
