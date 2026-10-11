@@ -38,7 +38,7 @@ permalink: /toys/
 </style>
 
 <p class="toys-intro">
-A set of small calculators we use for quick estimates in low-temperature plasma physics, followed by the databases and codes we rely on. Everything runs in your browser. The calculators assume idealized conditions (Maxwellian electrons, constant cross sections, cold ions) and are meant for order-of-magnitude checks, not for replacing a kinetic model.
+Small tools for quick estimates in low-temperature plasma physics, together with the databases and codes we use in our work. Everything runs in your browser, nothing is uploaded. The calculators rely on textbook formulas and idealized assumptions, so treat the numbers as order-of-magnitude guides rather than as a substitute for a kinetic model.
 </p>
 
 <!-- ===================== Energy unit converter ===================== -->
