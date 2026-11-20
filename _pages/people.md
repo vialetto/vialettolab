@@ -70,8 +70,26 @@ permalink: /people/
 </div>
 
 <div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/hanpeng-lyu.jpg" class="member-photo" alt="Hanpeng Lyu" />
+<p class="member-name">Hanpeng Lyu</p>
+<p class="member-role">Master's Student</p>
+</div>
+
+<div class="member">
 <img src="{{ site.url }}{{ site.baseurl }}/images/team/ryan-chick.jpg" class="member-photo" alt="Ryan Chick" />
 <p class="member-name">Ryan Chick</p>
+<p class="member-role">Undergraduate Student</p>
+</div>
+
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/bailey-manion.jpg" class="member-photo" alt="Bailey Manion" />
+<p class="member-name">Bailey Manion</p>
+<p class="member-role">Undergraduate Student</p>
+</div>
+
+<div class="member">
+<img src="{{ site.url }}{{ site.baseurl }}/images/team/aaron-wu.jpg" class="member-photo" alt="Aaron Wu" />
+<p class="member-name">Aaron Wu</p>
 <p class="member-role">Undergraduate Student</p>
 </div>
 
