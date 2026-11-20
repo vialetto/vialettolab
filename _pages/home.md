@@ -37,7 +37,7 @@ permalink: /
 
 <p class="home-hero-title">Multiscale Computational Plasma Lab</p>
 
-<p>Connecting microscopic physics to the macroscopic behavior of low-temperature plasmas through kinetic theory, multiscale simulations, and data-driven inference</p>
+<p>Engineering the chemical complexity of low-temperature plasmas for aerospace and industrial applications</p>
 
 </div>
 
