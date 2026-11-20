@@ -45,7 +45,11 @@ permalink: /
 
 <p class="home-welcome-title">Welcome to the Multiscale Computational Plasma Lab</p>
 
-<p>Research in the Multiscale Computational Plasma Lab at UCLA focuses on electric propulsion, semiconductor fabrication such as etching and deposition, fundamentals of plasma-material interactions, and low-temperature plasma physics. We develop physics-based and data-driven models to describe the complex interplay between plasma chemistry, rarefied gasdynamics, electromagnetic fields, and material responses. We welcome students from all backgrounds with an interest in combining engineering and physics to explore fundamental questions in science while building the computational tools of tomorrow.</p>
+<p>The <strong>Multiscale Computational Plasma Lab</strong> at UCLA investigates how plasma chemistry and plasma&ndash;material interactions shape the dynamics of low-temperature plasmas. We combine kinetic theory, multiscale simulations, and data-driven inference to develop predictive models that connect microscopic physics to the macroscopic behavior of complex plasma systems.</p>
+
+<p>Our research advances plasma science and engineering by connecting fundamental physical insights with technological challenges in electric propulsion, semiconductor manufacturing, and plasma-enabled chemistry.</p>
+
+<p>We welcome curious and motivated students from diverse backgrounds who are interested in combining physics, engineering, and computational science to tackle fundamental scientific challenges.</p>
 
 <p class="home-cta"><strong>If you want to learn about opportunities to join our group, <a href="{{ site.url }}{{ site.baseurl }}/positions">explore our positions &rarr;</a></strong></p>
 
